@@ -1,0 +1,79 @@
+|g++ -shared -fPIC  stdio.cpp -o stdio.so && g++ -ldl run.cpp -o run && ./run main_lib.ldi
+std:    {./stdio}       clib
+        {./my}          llib
+p:{std.print}
+|map filter fold pushback pushfront get delete
+toDeclare:{start:"data:"	|supparound [data]
+        out:[ data ] std.concat std.concat
+        end: out {start|end}lclr
+}
+
+listFromFunction:{start:""n:""func:"	|create list from function with length n
+        list:{start:""n:""acm:"
+                end: 
+                out:n{	| if
+                        n --' n func' toDeclare' acm std.concat
+                        {start|end}lclr
+                        list'
+                }{	| else
+                        acm
+                        {start|end}lclr
+                }std.If'
+        }
+        
+        out: n {} list'
+        end: {#} toDeclare' out std.concat {start|end}lclr
+}
+size:{start:"list:"	|size of list
+        count:{start:""ch:""n:"end:
+                ch std.charCode {#} std.charCode -'{	| if
+                        n ++'
+                        {start|end}lclr
+                        count'
+                }{	| else
+                        n 
+                        {start|end}lclr
+                }std.If'
+        }
+        
+        
+        out:list'{0} count'
+        end: out {start|end}lclr
+}
+~:{start:""list:""idx:"	|list[idx]
+        count:{start:""n:"end:
+                n{	| if
+                        n --'
+                        {start|end}lclr
+                        count'
+                }{	| else
+                        std.del
+                }std.If'
+        }
+        list' list size' idx -' count' out:"
+        end: out {start|end}lclr
+}
+map:{start:""list:""func:"	|apply func to list
+        out: {idx:" ens:} list toDeclare' { idx ~' } func { {idx|ens} lclr } std.concat std.concat std.concat std.concat
+        | listFromFunction'
+        end: out {start|end}lclr
+}
+
+
+
+
+main:   fib:{start:"n:"
+                fibb:{start:"""a:"""b:""n:"end:
+                        out:n{	| if
+                                b a b +' n --'
+                                {start|end}lclr
+                                fibb'
+                        }{	| else
+                                a
+                                {start|end}lclr
+                        }std.If'
+                }
+                {1}{1}n {1}-' fibb' out:"
+                end: out {start|end}lclr
+        }
+        {10000}fib'p'

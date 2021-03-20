@@ -1,0 +1,3 @@
+std:    {./stdio}       clib
+
+main:   {Hello, world!} std.print

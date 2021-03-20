@@ -1,0 +1,4 @@
+#name main#
+#import test#
+io is #load io#
+io.print (f_ 1 10).s

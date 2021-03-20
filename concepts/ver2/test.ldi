@@ -1,0 +1,40 @@
+#name test#
+a is 6
+b is true
+/\
+    its comment
+\/
+c is "home"
+d is [a,b,c]
+e is d.2
+f is \\{}
+a1 is (a+7)*6-2/3
+a2 is 1>2 | 2<3 | a<=3 | 2>=3 | 1/=0 | 1=0
+a3 is a1.s
+c1 is "h"
+a4 is c1.i
+b1 is b=false|a2&true^true/=false|!true
+b2 is b1.s
+
+d1 is d+[2,3]
+d2 is 2++l++true
+d3 is --d--
+d4 is 1^10 \n,l\{n*n}
+
+c2 is c1.i+c.2.i
+c3 is "12.7".i
+c4 is "true".b
+add is \x,y\{x+y}
+add1 is add 1
+a5 is add1 1
+b1 is add1-add1-add1 1
+Obj is \c,w,h,_\{
+    s is \\{w*h}
+}
+cop is Obj1 2 3
+a6 is cop.s
+
+f_ is \p,n|{
+    if n=0{p}
+    else {f_' (p*n) (n-1)}
+}

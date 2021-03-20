@@ -1,0 +1,166 @@
+   # CONCEPT OF LANGUAGE #
+ * *highest abstraction*                                +
+ * *dinamic gramatic*                                   +
+    * macros system                                     +
+        * cycle macros                                  - not suported, only for eval
+        * define symbols and value                      +
+    * defined symbols and set algorithms                +
+        symbols with action                             +
+ * *very simple and small: sintax, interpriter code.*   -
+ * interpriter | byte-code                              -+
+ * one proto type "data\0TYPE - USER DATA\0"            +
+ * C integration                                        +
+    * all language structure will write with C          +
+    * dinamic library manager                           +
+ * include file                                         +-
+
+
+## from text to code
+1. macros preprocessor
+    using for constant variable +
+    other inline construction   
+    step by step while template be
+2. symbol parse from user simple regular expression
+    gramatic of language
+3. action prcessing
+    symbols to action with regular expression
+    work with stack
+    and action this step for run code!
+
+
+    ## CONCEPT OF LUNDI LANGUAGE ver3#
+ * functional programming                                   -+
+    * recurese optimise                                     -
+    * auto carry                                            -+
+    * function is object and clases | all is ref to data    -+
+    * not variable                                          +
+    * monads                                                - we need not for this!
+ * structural programming                                   +
+    * expression                                            +
+ * cobject integration                                      +
+
+ ## Code1:
+
+io:     {stdio}         clib        //this is comment
+                                    // {constant variable push to stack}
+                                    // lable(addres to stack):
+                                    // clib - cmd for load c library
+                                    /io is pointer to library
+
+                                    // main - push string to stack and call function
+main:
+        {Hello world!}  io.print
+                                    //call from io(function name - parametrs)
+                                    // use lundi code for carry it
+
+ ## Code2:
+
+io:     {stdio}         clib
+std:    {std}           clib
+a:      {2}
+
+main:
+        {1+(23-\5)*a}
+        {a} a           std.replace
+                        std.calc    // cal return function with argument from string
+                        io.print
+        {0,1,2,3,4,5}               //list
+        {0}             std.index   //get from index
+                        io.print    //output
+
+ ## Code3:
+
+io:     {stdio}         clib
+std:    {std}           clib
+
+mult:   {
+acm:    =
+a:      ==
+end:    {a*b} acm a     std.replace
+                        std.replace
+                        std.calc
+        {acm|end}       lclr            //clear all from start to outputs
+}                       std.function
+
+// example of lambda
+// {acm:=;a:==;{a*b} acm a str.replace std.replace std.calc} std.function
+
+f:      {                           // multi line constant
+a:      =                           // you can use operion| =*n - set addresing from stack n
+        {1...a} a       std.replace
+                        std.listGen
+        - mult          std.map     //set - when you want to use function as parametr or carry it
+}                       std.function                  
+
+f':     {
+acm:    =
+n:      ==
+        {{n>1} n std.replace std.bool}std.function{
+            {n-1}       std.calc
+            n           acm mult
+            f'
+        }std.function{
+            acm
+        }std.function   std.if
+}                       std.function
+
+main:
+    {5}                 f io.print
+    {1/2}               mult io.print
+    - mult              io.print
+    {5} {1}             f' io.print
+
+
+
+ ## Code4:
+
+io:     {stdio}         clib
+std:    {std}           clib
+
+max:    {
+a:      =
+b:      ==
+        if({a>b} b a std.replace std.bool)
+        {
+            a
+        }else{
+            b
+        }
+}                       std.function
+
+main:
+>five:  - {5}           max             // carring
+        {3}             >five
+                        io.print
+        - >five {a}     std.getV        // push func as var; push named a; 
+                                        // call std.getV to get symbol a from >five code space
+                        io.print
+
+ ## Code5
+
+io:     {stdio}         clib
+std:    {std}           clib
+my:     {Code4}         llib            // when include->process run->save symbols as "my_" - prefix
+
+main:
+        {2} {-3}        my_max
+                        io.print
+                        my_main         //last operation in main is io.print, and main isn't function
+                        io.print        //print last value in stack of Code4, now for main it's >five declared
+
+ ## Code6
+
+io:     {stdio}         clib
+std:    {std}           clib
+
+main:
+        {Hi, to be continue...
+Now I don't think about anything
+while I write the code for this}
+                        io.print
+
+/\recurese test
+sdt:{./stdio}clib
+r:{{r}sdt.print {for push to stek and overflow memory} r {for push to input buffer and overflow its} } sdt.function
+{Hello} sdt.print
+r

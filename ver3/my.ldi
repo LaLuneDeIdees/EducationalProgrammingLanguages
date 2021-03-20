@@ -1,0 +1,55 @@
++:{start:""a:""b:"
+        out:a b std.plus
+        end: out {start|end}lclr
+}
+++:{start:"a:"
+        out:a {1} std.plus
+        end: out {start|end}lclr
+}
+-:{start:""a:""b:"
+        out:a b std.minus
+        end: out {start|end}lclr
+}
+--:{start:"a:"
+        out:a {1} std.minus
+        end: out {start|end}lclr
+}
+
+*:{start:""a:""b:"
+        out:a b std.mult
+        end: out {start|end}lclr
+}
+>:{start:""a:""b:"
+        out:a b -' std.charCode {-} std.charCode -'{	| if
+                {1}
+        }{	| else
+                {0}
+        }std.If'
+        end: out {start|end}lclr
+}
+<:{start:""a:""b:"
+        out:a b -' std.charCode {-} std.charCode -'{	| if
+                {0}
+        }{	| else
+                {1}
+        }std.If'
+        end: out {start|end}lclr
+}
+=:{start:""a:""b:"
+        out:a b -'{	| if
+                {0}
+        }{	| else
+                {1}
+        }std.If'
+        end: out {start|end}lclr
+}
+!:{start:"a:"
+        out:a{	| if
+                {0}
+        }{	| else
+                {1}
+        }std.If'
+        end: out {start|end}lclr
+}
+[:{\{}
+]:{\}}

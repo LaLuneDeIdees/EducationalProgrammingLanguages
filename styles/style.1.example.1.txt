@@ -1,0 +1,197 @@
+'Hello world'
+5 7.098 -9
+true false
+
+5+7*(9-8)*-7/-3.12
+
+max 2, 4
+max 2, (min 5, 7)
+max (min 3, 5), 4
+max_square is max << pow ., 2
+max (max_square 4)
+
+hello with name is {
+	nextMsg is '';
+	hi is {
+		if name == '' is {      /\это комментарий
+													==
+										/ 		n=
+										|			<      <
+										|			>      < нет не эти, это знаки сравнения и логики
+	это знаки комментария		>=     <
+										|			<=
+										|			&
+										\			| <при чём это также битные операции
+													!
+													>> << - это сдвиги
+												\/
+			return;
+		}
+		return 'Hello'
+	}
+	lout hi, name, nextMsg, .sep=' ', .end='\n';
+	return name;
+}
+
+hello 'dad'
+hello hello.hi
+obj is new hello
+obj.nextMsg is 'Wellcome!!!'
+obj 'New Day'
+
+thr is [=]hello 'dad' /\run in thread\/
+/\returned struct with this obj and we use this for managment thread\/
+thr.obj.hi /\get data or call func but not communicate with thread\/
+/\
+main			thr
+	|				|
+	\_____	|
+				\	|
+				*<| <= get code func and run
+				|	|
+	 _____/	|
+	/				|
+	|				|
+\/
+[=]thr.obj.hi /\call func in thread. this stop thr for processing hi but this main thread not stoped\/
+/\
+main			thr
+	|				|
+	\_____	|
+				\	|
+				|>- <= call interupts
+				|	\___
+	 _____/			\
+	/						* func
+	|				 ___/
+	|				/
+	|				|
+\/
+[==]thr.obj.hi /\call func in  new thread with communicate in thread (thr)\/
+/\
+main			thr
+	|				|
+	\_____	|
+				\	|
+				|>--\
+				|	|	|
+	 _____/	|=*  <= run func int new thread with communicate
+	/				|	|
+	|				|	x <= close or call other interupts and other communicate
+	|				|
+	|				|
+\/
+thr.close
+
+//branch
+a is true
+if a is [=]{ /\you can use [=] befor any code block or func call and this run in thread. use [==] only befor thread object\/
+
+}elif !a is{
+
+}elis{
+
+}
+
+//loop
+while a is [=]{
+	break
+	continue
+}
+for with i is 0 while i < 10 call i++ is {
+
+}
+for while a is [=]{
+
+}
+for with i is 0 while i<1 call {i++; a = !a} is {}
+
+/\but we recomended use map,filter and reduce\/
+
+newfunc with a is {
+	if a <= 0 is {
+		return
+	}elis{
+		a--;
+		newfunc' a /\ ' need in recurse \/
+	}
+}
+
+[\MyMacros\
+{(hello 'Hello world')}]
+if a is[=]{
+	MyMacros
+}
+/\but this effect you can get with next variant\/
+newhellofunc is new hello 'Hello world'
+newhellofunc
+
+[+otherfile.ldi] /\for include\/
+
+[cpp{MyCppFunc}{void,void,none}{
+	#include <iostream>
+	using namespace std;
+	void MyCppFunc(){
+		cout << "Hello world" << endl;
+	}
+}]
+
+cpp.MyCppFunc
+
+[cpp{add}{int,int,int,num}{
+	void add(int a, int b){
+		return a+b;
+	}
+}]
+
+a is 5
+b is 9
+c is cpp.add a, b
+
+/\for return type you can use bite_t for use right byte and after you can use this with cpp func\/
+
+syscall 0, a /\syscall uses for calling VM api (load library, other cpp library, memory managment and other)\/
+
+/\Lists\/
+mylist is [1,2,4,5]
+add5 is add 5, .
+mylist is add5 mylist
+/\if func use 1 operand then func calling for list elements and return new list
+string is list of byte_int(or num)
+\/
+
+
+func2 is {
+	a is 5
+	b is 7
+}
+obj is func2
+obj.a is 6
+/\func2.a = 6\/
+obj is new func2
+obj.a is 7
+/\func2.a = 6\/
+nnn is mylist
+nnn.0 is 98
+/\mylist.0 is 98\/
+nnn is new mylist
+nnn."HI" is "HELLO"
+/\mylist."HI" is NULL\/
+
+
+abc is mylist."HI"
+abc is add5 abc /\This is error, stop thread, set error status\/
+
+try{
+	abc is add5 abc
+}catch with e is {
+	lout e.getMessage
+}finaly is{
+	abc is 6
+}
+abc.type
+
+func12 with a, b where ., 7 is {
+	return a+b
+}
+

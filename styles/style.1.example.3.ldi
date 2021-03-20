@@ -1,0 +1,8 @@
+funcfromlib is{
+	a is 9
+	b is 34
+	c is 'Hejhgjdf'
+	f with d,e is{
+		return a*d+b*e
+	}
+}
