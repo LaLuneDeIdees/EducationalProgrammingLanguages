@@ -1,0 +1,164 @@
+
+// ############
+11101xyz
+( ( (S x) y) x)
+SKKx
+111010000x
+S(SK)Kx
+111011010000x
+
+T(x) -> x
+T(E1 E2) -> T(E1) T(E2)
+T(\x.E) -> K T(E) ; if x not free in E
+T(\x.x) -> I
+T(\x.\y.E) -> T(\x.T(\y.E)) ; if x free in E
+T(\x.(E1 E2)) -> S T(\x.E1) T(\x.E2) ; if x free in E1 or E2
+
+\x y -> x x
+\x -> \y -> x x
+T(\x.\y.x x)
+T(\x.T(\y.x x))
+T(\x.S T(\y.x) T(\y.x))
+T(\x.S (K x) (K x))
+T(S T(\x.S (K x)) T(\x.K x))
+T(S T(\x.S (K x)) (S T(\x.K) T(\x.x)))
+S (S (KS) (S (KK) I) (S (K K) I)
+
+S(S(KS)(S(KK)I)(S(KK)I))
+
+
+//###############################################3
+//when call function send:
+//* thunks addr for args
+// * nextCode addr
+
+// and memory managment for types:
+// struct Constructor{
+//     U32 id;
+//     Ptr arg;
+// };
+// struct Arg{
+//     Ptr thunk;
+//     Ptr next;
+// }
+// struct FuncCall{
+//     Ptr args
+//     Ptr f
+// }
+
+// \ a b x -> ((\ (IO a s) -> b a s) a x)
+// f - * - * - * - $
+//     |   |   |
+//     a   b   x
+// f1:
+// f2:
+// f3:
+// add is \ a b -> a + b
+// \a -> \b -> a+b
+// \a n -> n(\b n -> n(a+b))
+
+// add 1 2
+// add 1 (\f -> f 2 (\r -> r))
+
+// \a -> (\a b -> a + b) a
+
+// 1:
+//     \ a b x -> (
+//             (\ b (IO a s) -> b a s) b a x
+//         )
+// 2:
+//     \a -> \b -> \x -> (\b -> \(IO a s) -> b a s) b a x
+    
+
+// * function is FF and Ptr
+// FUNC{
+//     U32 ptrCount
+//     Ptr ptr
+//     Ptr args
+// }
+// * closure cast to argument
+// * cast to carring
+// * cast with env
+// * apply with tiks with one arg
+// * arg ret with Thunks
+// THUNK{
+//     U32 ptrCount
+//     Ptr code
+//     Ptr env
+// }
+// Constructor{
+//     U32 ptrCount
+//     U32 id
+//     Ptr env
+// }
+// ENV{
+//     U32 ptrCount
+//     Ptr data
+//     Ptr next
+// }
+
+
+// BOOTSTRAPING
+// miniL:
+type A is a b
+type B is
+    C
+    D -> a b c
+
+//no polymorphism(ad-hoc,multymethod,spesial)
+//Types(what only I64)
+//U8,U16,U32,U64
+//I8,I16,I32,I64
+//Ptr T
+
+
+| is
+    infixl
+    \ a b -> b a
+
+
+~ is
+    infixr
+    \ a b -> a b
+
+// + is infixl
+
+type IO is a b
+
+ret is
+    \a s -> IO a s
+
+>>> is
+    infixl
+    \a b s -> (\(IO a s) -> b s) (a s)
+>=> is
+    infixl
+    \a b s -> (\(IO a s) -> b a s) (a s)
+
+
+main is
+    ST | (
+            ret (1 + 3);
+        >=> (\a -> printI a);
+        >>> ret 0
+    )
+////////////////////////////
+// str is "Hello"
+
+// char1 is str[8]
+
+// = is
+//     infixr
+//     \a b s -> set a b s
+
+// edit is
+//     \str n s -> (
+//         loop is
+//             \str 0 s -> ret s
+//             \str n s -> (
+//                 (str[n] = n)
+//             >>> loop str (n-1)
+//             )
+//     )
+
+// main is ST | edit str 5

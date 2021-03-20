@@ -1,0 +1,94 @@
+#doctype CODE //ARCH //LIB?
+#import 'platform/linux_x86-64'
+#import 'example'
+//if use 'as exp' we need use exp.attributeFunction
+//this exp will be as object
+#.section .data
+
+//keywords:
+// #...
+// array u8 u16 u32 i8 i16 i32 true false bool ptr float double?
+// char set string enum type do switch if-then-else other sizeof
+
+//ok... what i think about algebraic types and pattern matching?
+// + lazy|strong mode?
+// type system
+
+//sizeof
+//&addrFromName *itemFromPtr
+//~
+
+
+hello = 'Hello, world!\n'
+
+logic = true
+a = 10
+b = 123
+c = 0b11111111:u8
+c1 = 0xff:u8
+at = 121121:i32
+e = 23.6e-2:float
+e1 = 12:double
+ch = 'h'
+
+str = 'g':string
+//or
+str1 = 'g':string
+
+pointer = :ptr(i32)
+pointer = :ptr
+arr = {1,2,3,5}
+arr1 = {1,2,3} : array(i8, 3)
+arr2 = {1,34} : array(u8, 10)
+arr3 = :array(bool, 10)
+
+//None - type for null
+//Other - word for any compare -> true
+//func - type of function
+
+//???
+Enum = {First,Second,Other} //if names not used?
+//as enum
+//???
+
+
+stack = :myStack(u8,16)
+
+#.section .text
+#.global _start
+#_start:
+
+main = do   | print hello
+            | print (4 | fib | fib) //conversion to string if int have method toString
+            | stack.push 34
+            | exit
+
+fib = Y \fib, n:u8 {
+    switch
+    | n <= 2 -> 1
+    | other  -> (fib (n-1)) + (fib (n-2))
+}
+
+True = \x, y {x}
+False = \x, y {y}
+not = \x {x False True}
+
+fib` = \n {
+    fib`` = Y \fib``, a, b, n {
+        switch
+        | n <= 1 -> a
+        | fib`` b (a+b) (n-1)
+    }
+    fib`` 1 1 n
+}
+
+fib`` = \n {
+    fib``` = Y \fib```, a, b, n {
+        if n <= 1 then
+            a
+        else
+            fib``` b (a+b) (n-1)
+    }
+    fib``` 1 1 n
+}
+

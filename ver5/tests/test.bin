@@ -1,0 +1,27 @@
+std¦EÖ×./bin/stdÒÕ4êp}NNœstd.print9ßü#fibö¢
+    n:"
+    fib`:{
+        a:"""b:""n:"
+        n{
+            b a b std.plus n {1} std.minus
+            {a|3}lclr
+            fib`'
+        }{
+            a
+            {a|1}lclr
+        }std.If'
+    }
+    {1}{1}n{1}std.minus fib`'
+    {n|1}lclr
+QÓfib1,ãİÿ
+    n:"
+    n {3} std.minus std.charCode {-} std.charCode std.minus{
+        n {1} std.minus fib'
+        n {2} std.minus fib'
+        std.plus
+        {n|1}lclr
+    }{
+        {1}
+        {n|1}lclr
+    }std.If'
+9˜È10000'¨[fibö¢p}NNœp}NNœ

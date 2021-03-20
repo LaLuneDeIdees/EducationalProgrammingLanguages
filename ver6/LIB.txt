@@ -1,0 +1,40 @@
+#doctype LIB
+#name 'example'
+
+//no data only type and function declared
+Y = \f{
+    \x{x x} \x{f x x}
+}
+int.toString = \num:int{
+    toString` '' num
+    toString` = Y \toString`, acmStr:string, acmI:int{
+        if num = 0
+            then
+                acmStr
+            else
+                char(int%10) + (toString` acmStr (int/10))
+    }
+}
+type myStack(Type, maxsize:u16){
+    size = maxsize
+    stack = :array(Type, maxsize)
+    top = stack:Type*
+    topIdx = 0
+}
+
+print = \str:string{
+    do  | set _ra 4
+        | set _rb 1
+        | set _rc &str
+        | set _rd str.length
+        | _asm 'int $0x80'
+}
+
+myStack.push = \stack, data{
+    switch
+    | stack.topIdx < stack.maxsize -> (
+        do  | set stack.stack[stack.topIdx] data
+            | set stack.topIdx (stack.topIdx+1)
+    )
+    | other -> do
+}

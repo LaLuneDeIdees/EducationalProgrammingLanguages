@@ -1,0 +1,18 @@
+a = 0.1
+s = 10
+ifFirst0 = True
+while s >= -20 and a!= 0:
+    t = 2**s
+    if t <= a:
+        a-=t
+        print(1,end='')
+        ifFirst0 = False
+    elif not ifFirst0:
+        print(0,end='')
+    if s==0:
+        if ifFirst0:
+            print(0,end='')
+            ifFirst0 = False
+        print(',',end='')
+    s-=1
+print()

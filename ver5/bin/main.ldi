@@ -1,0 +1,18 @@
+std:{./bin/std}clib
+p:{std.print}
+0: {f:""x:"
+	x {f|1}lclr
+}
+1: {f:""x:"
+	x f' {f|1}lclr
+}
+succ:{x:"
+	x {f:"""z:""x:"
+		f z x' f'
+		{f|1}lclr
+	} {x|2}lclr
+}
+1 succ' succ' p' p' p'
+#rec:{monad p' rec'}
+#rec'
+#valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes ./bin/run ./src_ldi/main.ldi

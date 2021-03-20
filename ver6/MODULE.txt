@@ -1,0 +1,20 @@
+#doctype MODULE //LIB?
+
+
+import = \{
+    'example'
+    Y = \f{\{}}
+    int.toString = \n:int{s:string}
+    print = \s:string{do}
+    myStack.push = \s:myStack,d{
+        do
+        with = set myStack.stack[0] d
+    }
+}
+
+type myStack(Type, maxsize:u16){
+    size = maxsize
+    stack = :array(Type, maxsize)
+    top = stack:Type*
+    topIdx = 0
+}

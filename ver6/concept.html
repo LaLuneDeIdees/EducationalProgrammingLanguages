@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.3.6.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changedby" content="Lune "/>
+	<meta name="changed" content="2020-06-02T09:44:04.420126309"/>
+	<style type="text/css">
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 115%; background: transparent }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		a:visited { color: #800000; so-language: zxx; text-decoration: underline }
+		code.western { font-family: "Liberation Mono", monospace }
+		code.cjk { font-family: "Noto Sans Mono CJK SC", monospace }
+		code.ctl { font-family: "Liberation Mono", monospace }
+	</style>
+</head>
+<body lang="ru-RU" link="#000080" vlink="#800000" dir="ltr"><p style="margin-bottom: 0cm; line-height: 100%">
+<font size="2" style="font-size: 10pt">JIT &amp; HASH &amp;
+interpriter</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">*--*</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">|OR|
+? `0_0`</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">*--*</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">compiler
+(to byte|to asm|to cpp</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">Lambda
+Calculus</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">#a
+= \f.f f</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">#a
+a -b&gt; a[f:=a] -b&gt; (\f.f f)(\f.f f) -b&gt; (\f.f f)[f:=(\f.f f)]
+-b&gt; (\f.f f)(\f.f f) -b&gt;...</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">#in
+{} use basic types, operation and other basic laguage support</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">#
+but... what i think about `lenivie` calculus?</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">a:
+\f.\n.if' n(\_.n*(f f (n-1)))(\_.1)</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">f:
+\n.{a a n}</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">#
+? how to c++?</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">Types?</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">Low
+level program language Types of C</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">using
+keyworgs words asm</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">lambda
+calculus</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><font size="2" style="font-size: 10pt">recurse
+optimisation</font></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><a name="__DdeLink__1_1262098978"></a>
+<code class="western"><font size="2" style="font-size: 10pt">fib =
+</font></code><code class="western"><font size="2" style="font-size: 10pt">[</font></code><code class="western"><font size="2" style="font-size: 10pt">\f.\a.\b.\n.
+A if n=0 else [f b [a+b] [n-1]]</font></code><code class="western"><font size="2" style="font-size: 10pt">]</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">fib
+fib 1 1 10</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">//monad
+— key word</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">save
+- \a.\out.monad [lda $a] [sta $out]</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">[</font></code><code class="western"><font size="2" style="font-size: 10pt">\f.\a.\b.\n.
+A if n=0 else [f b [a+b] [n-1]]</font></code><code class="western"><font size="2" style="font-size: 10pt">]</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">[\f.\a.\b.\n.
+A if n=0 else [f b [a+b] [n-1]]]</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">1</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">1</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><code class="western"><font size="2" style="font-size: 10pt">10</font></code></p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0cm; line-height: 100%"><br/>
+
+</p>
+</body>
+</html>

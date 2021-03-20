@@ -1,0 +1,27 @@
+2
+start 2
+#
+
+preproc
+@
+
+start
+preproc 2
+$
+addToken(1,state.data['acm']);state.data['acm']=''
+start
+@
+state.data['acm']+=c
+preproc
+
+#$ = \n
+# @ -> complit without compare with char
+#abcdefghijklmnopqrstuvwxyz
+#ABCDEFGHIJKLMNOPQRSTUVWXYZ
+#0123456789
+
+st.data["acm"]=''
+st.data['st'] = []
+def addToken(tokid,tok):
+	global st
+	st.data['st'].append([tokid,tok])

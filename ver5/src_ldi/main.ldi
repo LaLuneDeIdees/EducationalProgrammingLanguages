@@ -1,0 +1,35 @@
+std:{./bin/std}clib
+p:{std.print}
+fib:{
+    n:"
+    fib`:{
+        a:"""b:""n:"
+        n{
+            b a b std.plus n {1} std.minus
+            {a|3}lclr
+            fib`'
+        }{
+            a
+            {a|1}lclr
+        }std.If'
+    }
+    {1}{1}n{1}std.minus fib`'
+    {n|1}lclr
+}
+fib1:{
+    n:"
+    n {3} std.minus std.charCode {-} std.charCode std.minus{
+        n {1} std.minus fib'
+        n {2} std.minus fib'
+        std.plus
+        {n|1}lclr
+    }{
+        {1}
+        {n|1}lclr
+    }std.If'
+}
+{10000}fib'p'
+
+#rec:{monad p' rec'}
+#rec'
+#valgrind --tool=callgrind --dump-instr=yes --simulate-cache=yes --collect-jumps=yes ./bin/run ./src_ldi/main.ldi

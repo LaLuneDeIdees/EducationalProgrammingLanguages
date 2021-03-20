@@ -1,0 +1,7 @@
+S = lambda f: lambda g: lambda x:f(x)(g(x))
+K = lambda x: lambda y: x
+I = lambda x: x
+
+dF = S(K(K))(I)
+
+dF(lambda x:print(''.join(x.split('').reverse())))(print)('Hello')

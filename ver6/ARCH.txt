@@ -1,0 +1,51 @@
+#doctype ARCH //LIB?
+
+environment{
+	STACK = 'sp'
+	OP_MOD = 1 //1 - with 3 op: add r1, r2, r3 -> r1 = r2+r3
+			   //2 - with 2 op: add r1, r2 -> r1 = r1+r2
+	REGS = [
+		_ra:'rax',
+		_rb:'rbx',
+		...
+		_r32:'r32'
+	]
+	OTHER_REG = [
+		name:'name',
+		...
+	]
+}
+
+instructions{
+//[not used - example]
+//first is sourse, second is target
+//LDb(MEM,MEM) = 'movb %1 %2' //Load one byte from mem[a] to mem[b]
+//LDw(MEM,MEM) = 'movw  %1' //Load one word from mem[a] to mem[b]
+//LDl(MEM,MEM) = 'movl %1 %2' //Load one long from mem[a] to mem[b]
+//LDb(IMM,REG) = '' //from immidate to reg
+
+LDb(MEM,REG) = 'movb a b'
+LDw(MEM,REG) = 'movw a b'
+LDl(MEM,REG) = 'movl a b'
+
+LDb(REG a,REG b) = 'movb a b'
+LDw(REG a,REG b) = 'movw a b'
+LDl(REG a,REG b) = 'movl a b'
+
+STb(REG a,MEM b) = 'movb a b'
+STw(REG a,MEM b) = 'movw a b'
+STl(REG a,MEM b) = 'movl a b'
+
+//signed -> a = b OP c
+
+//if OP_MOD == 2 then
+//	use b as target, c as source
+//	addb b c -> b = b+c
+ADDb(REG a,REG b,REG c) = 'addb b c'
+ADDw(REG a,REG b,REG c) = 'addw b c'
+ADDl(REG a,REG b,REG c) = 'addl b c'
+//...
+}
+optimisation{
+
+}
