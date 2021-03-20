@@ -1,0 +1,245 @@
+from numpy.fft import fft
+from matplotlib.pyplot import plot,show,subplot,scatter
+from sklearn.preprocessing import scale,normalize
+import numpy as np
+from math import sin
+
+from sklearn.model_selection import train_test_split,ShuffleSplit
+from sklearn.metrics import accuracy_score
+from autosklearn.classification import AutoSklearnClassifier
+from autosklearn.experimental.askl2 import AutoSklearn2Classifier
+from sklearn.preprocessing import scale
+
+
+d = list(filter(lambda a:len(a)>0,open('/home/lune/Документы/OFFICE/NTI/seconStageNeuro/problem3_data.txt').read().split('\n')))
+# d = list(enumerate(d))
+
+dS = []
+dL = []
+for idx in range(len(d)//2):
+    dS.append(d[idx*2+1])
+    dL.append(int(d[idx*2]))
+dS = list(map(lambda a:list(map(int,a.split())),dS))
+# d = d1
+# list(map(lambda a:print(a[0]),d))
+NI = 256*2
+HZ = 256
+# hz = idx *  HZ / w
+idxFromHz = lambda w,hz:round(hz*w/HZ)
+startAlpha = idxFromHz(NI,8)
+endAlpha = idxFromHz(NI,12)
+# startAlpha = round(8/(256/NI))
+# startAlpha = 19
+# endAlpha = round(12/(256/NI))
+# endAlpha = NI//2
+# print(startAlpha,endAlpha)
+
+def spliti(l):
+    # startAlpha = idxFromHz(len(l),8)
+    # endAlpha = idxFromHz(len(l),12)
+    # lt = list(map(lambda a: a.real**2+a.imag**2,fft(l)))
+    # lt = lt[startAlpha:endAlpha+1]
+    # return [lt]
+    
+    l1 = []#[0]*(endAlpha-startAlpha+1)
+    pin = 4
+    
+    # for i in range(len(l)//(NI//pin)-1):
+    while l:
+        lt,l = l[:NI],l[NI:]
+        # lt = l[i*(NI//pin):i*(NI//pin)+NI]
+
+        fft(lt)
+        lt = list(map(lambda a: a.real**2+a.imag**2,fft(lt)))
+        
+
+        # TIm = sum(lt)
+        # TIm1 = np.median(lt)
+        # lt = [TIm] + lt[startAlpha:endAlpha+1]
+        lt = lt[startAlpha:endAlpha+1]
+        
+        # lt = list(normalize(np.array(lt).reshape(1,-1),axis=1))[0]
+        
+        # lt = lt[0]
+        # print(lt[0])
+        # for i in range(endAlpha-startAlpha+1):
+            # l1[i]+=lt[i]
+        # l1.append(lt+[TIm,TIm1])
+        l1.append(lt)
+
+    return l1
+X,y = [],[]
+dS = list(map(spliti,dS))
+for i in range(len(dL)):
+    for k in dS[i]:
+        # if dL[i] == 1:
+        #     subplot(1,2,1)
+        # else:
+        #     subplot(1,2,2)
+        # o = max(enumerate(k),key=lambda a:a[1])
+        # scatter(o[1],(4-o[0]),data=str(i))
+            # plot(k)
+        X.append(k)
+        y.append(dL[i])
+# list(map(plot,X))
+# show()
+# exit(0)
+# x1s = len(X1)
+# x2s = len(X2)
+# X_train = X1[:x1s//2]+X2[:x2s//2]
+# X_test = X1[x1s//2:]+X2[x2s//2:]
+# y_train = [1]*(x1s//2) + [2]*(x2s//2)
+# y_test = [1]*(x1s-x1s//2) + [2]*(x2s-x2s//2)
+
+# X = X_train+X_test
+# y = y_train+y_test
+
+# X_train = X[:x1s//2+x2s//2]
+# X_test = X[x1s//2+x2s//2:]
+# y_train = y[:x1s//2+x2s//2]
+# y_test = y[x1s//2+x2s//2:]
+
+# from random import shuffle
+# X_train, _, y_train, __ = train_test_split(X_train,y_train,test_size=0.0001)
+# np.median([1,2,4,6])
+
+# plot(sorted(list(map(lambda a:np.median(a[1]),filter(lambda a:y[a[0]]==1,enumerate(X))))))
+# plot(sorted(list(map(lambda a:np.median(a[1]),filter(lambda a:y[a[0]]==2,enumerate(X))))))
+# show()
+# list(map(lambda a:plot(a[1]),filter(lambda a:y[a[0]]==1,enumerate(X))))
+# show()
+# list(map(lambda a:plot(a[1]),filter(lambda a:y[a[0]]==2,enumerate(X))))
+# show()
+# print(X[:10])
+
+
+#2
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=3,shuffle=True)
+
+from sklearn.preprocessing import StandardScaler
+
+f = StandardScaler()
+f.fit(X_train,y_train)
+X_train = list(f.transform(X_train))
+X_test = list(f.transform(X_test))
+X = list(f.transform(X))
+
+# i = 0
+# while i < len(X):
+#     k = X[i]
+#     p = y[i]
+#     o = max(enumerate(k),key=lambda a:a[1])
+#     if p == 1:
+#         if o[1] > 7.5:
+#             del(X[i])
+#             del(y[i])
+#             i-=1
+#     else:
+#         if o[1] > 3:
+#             del(X[i])
+#             del(y[i])
+#             i-=1
+#     i+=1
+# i=0
+# while i < len(X):
+#     k = X[i]
+#     p = y[i]
+#     o = max(enumerate(k),key=lambda a:a[1])
+#     if p == 1:
+#         subplot(1,2,1)
+#     else:
+#         subplot(1,2,2)
+#     scatter(o[1],(4-o[0]),data=str(i))
+    # i+=1
+# show()
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=3,shuffle=True)
+# exit(0)
+from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
+from sklearn.neural_network import MLPClassifier,MLPRegressor
+
+
+endecLs = [12,8]
+dd1 = MLPRegressor(
+    hidden_layer_sizes=endecLs+list(reversed(endecLs[:-1])),#(8,1),
+    activation='relu',
+    solver='lbfgs',
+    learning_rate='adaptive',
+    shuffle=False,
+    random_state=1,
+    warm_start=True,
+    max_iter=1000000,
+    # validation_fraction=0.001
+    # alpha=1,
+    # learning_rate_init=0.1,
+)
+dd2 = MLPRegressor(
+    hidden_layer_sizes=endecLs[:-1],#(8,1),
+    activation='relu',
+    solver='lbfgs',
+    learning_rate='adaptive',
+    shuffle=False,
+    random_state=1,
+    warm_start=True,
+    max_iter=1,
+)
+dd1.fit(X_train,X_train)
+dd2.fit([X_train[0]],[[0]*endecLs[-1]])
+
+dd2.intercepts_ = dd1.intercepts_[:len(endecLs)]
+dd2.coefs_ = dd1.coefs_[:len(endecLs)]
+# print(dd1.coefs_,dd2.coefs_,sep='\n'+'#'*32+'\n')
+# print(dd1.intercepts_,dd2.intercepts_,sep='\n'+'#'*32+'\n')
+
+
+cldd = MLPClassifier(
+    hidden_layer_sizes=(1,12,1),#(8,1),
+    activation='tanh',
+    solver='lbfgs',
+    learning_rate='adaptive',
+    shuffle=False,
+    random_state=2,
+    warm_start=True,
+    max_iter=1000000,
+    alpha=0.0001,
+    # learning_rate_init=0.000001,
+    # validation_fraction=0.001
+)
+cldd = GridSearchCV(cldd,n_jobs=8,param_grid={
+    # 'hidden_layer_sizes':[(1,a) for a in range(1,20)]
+    # 'random_state':range(1,10),
+    # 'alpha':[10**-x for x in range(7)]
+})
+ans1 = dd2.predict(X_train)
+cldd.fit(ans1,y_train)
+print(cldd.best_params_)
+
+def scorePredict(X,y):
+    yans = cldd.predict(dd2.predict(X))
+    acc = accuracy_score(y,yans)
+    return yans,acc
+_,acc =scorePredict(X_test,y_test)
+_,acc1 =scorePredict(X_train,y_train)
+# list(map(plot,X_train))
+# show()
+
+# for i in range(len(X_train)):
+#     if y_train[i] == 2:
+#         plot(dd2.predict([X_train[i]])[0],color='red')
+#     else:
+#         plot(dd2.predict([X_train[i]])[0],color='blue')
+# show()
+
+# for i in range(len(X_train)):
+#     if y_train[i] == 1:
+#         plot(dd1.predict([X_train[i]])[0])
+# show()
+print(dd1.score(X_train,X_train),dd1.score(X_test,X_test))
+# print(X_train[:2])
+print(dd1.predict(X_train[:2]))
+print(acc,acc1)
+# print(cldd.best_params_)
+# print(acc)
+# print(dd1.score(ans1,X_train))
+# print(ans1)

@@ -1,0 +1,277 @@
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \\x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \\f -> f (y f)
+y` is \\f -> (\\x -> f (x x)) (\\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \\_ 1 -> 1
+            \\fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type Char is U8
+
+type B is (List Char)
+
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    //strict
+    infixl
+    List A -> U32 -> A
+    \\ (List x _) 0 -> x
+    \\ (List _ xs) i -> xs <> (i - 1)
+
+succ is
+	\ a -> a + 1
+
+forTest is
+	if succ 1 + 4 * (- 4) - 1 and 1 << 3 : 123 : Nil <> succ 12
+
+#####################################3
+
+
+type State is
+    ST
+    State -> State
+
+
+type IO with a is (a State)
+    
+
+| is
+    infixl
+    a -> (a -> b) -> a -> b
+    \ a b -> b a
+
+~ is
+    infixr
+    (a -> b) -> a -> a -> b
+    \ a b -> a b
+
+
+>>> is
+    infixl
+    (State -> IO a) -> (State -> IO b) -> State -> IO b
+    \ a b x -> (
+        b ~ (\ (IO a s) -> s) ~ (a x)
+    )
+
+
+>=> is
+    infixl
+    (State -> IO a) -> (a -> s -> IO b) -> State -> IO b
+    \ a b x -> (
+        (\ (IO a s) -> b a s) a x
+    )
+
+
++ is
+  infixl
+  I32 -> I32 -> I32
+
+
+add is 
+    \ a b -> a + b
+
+
+ret is
+    a -> x -> IO a
+    \ a s -> IO a s
+
+
+exit is
+    State -> IO a
+
+printf is
+    Ptr U8 -> I32 -> State -> IO c
+
+
+main is ST | (
+    ret (add 1 2)
+   ) >=> ( \ a -> printf '%d\n' (a : Nil)
+   ) >>> exit
+
+###############################################3
+when call function send:
+* thunks addr for args
+* nextCode addr
+
+and memory managment for types:
+struct Constructor{
+    U32 id;
+    Ptr arg;
+};
+struct Arg{
+    Ptr thunk;
+    Ptr next;
+}
+struct FuncCall{
+    Ptr args
+    Ptr f
+}
+
+\ a b x -> ((\ (IO a s) -> b a s) a x)
+f - * - * - * - $
+    |   |   |
+    a   b   x
+f1:
+f2:
+f3:
+add is \ a b -> a + b
+\a -> \b -> a+b
+\a n -> n(\b n -> n(a+b))
+
+add 1 2
+add 1 (\f -> f 2 (\r -> r))
+
+\a -> (\a b -> a + b) a
+
+1:
+    \ a b x -> (
+            (\ b (IO a s) -> b a s) b a x
+        )
+2:
+    \a -> \b -> \x -> (\b -> \(IO a s) -> b a s) b a x
+    
+
+* function is FF and Ptr
+FUNC{
+    U32 ptrCount
+    Ptr ptr
+    Ptr args
+}
+* closure cast to argument
+* cast to carring
+* cast with env
+* apply with tiks with one arg
+* arg ret with Thunks
+THUNK{
+    U32 ptrCount
+    Ptr code
+    Ptr env
+}
+Constructor{
+    U32 ptrCount
+    U32 id
+    Ptr env
+}
+ENV{
+    U32 ptrCount
+    Ptr data
+    Ptr next
+}
+
+example:
+    _cast_List2 is
+    \ _ 0 -> nil
+    \ a n -> (
+        castLoop n n
+        castLoop is
+        \ _ 0 -> nil
+        \ n i -> a[n - i] : (castLoop n (i-1))
+    )
+    castLoop ->:
+        castLoop is
+            \ _ _ 0 -> nil
+            \ a n i -> a[n - i] : (castLoop a n (i-1))
+
+            \ a -> \n -> \i -> : (Thunk with env ->[] env.a (Thunk with env -> EVAL(env.n) - EVAL(env.i))) (Thunk with env ->castLoop anv.a env.n (Thunk with env ->EVAL(env.i) - 1))
+
+BOOTSTRAPING
+miniL:
+type A is a b
+type B is
+    C
+    D -> a b c
+
+//no polymorphism(ad-hoc,multymethod,spesial)
+//Types(what only I64)
+//U8,U16,U32,U64
+//I8,I16,I32,I64
+//Ptr T
+| is
+    infixl
+    \ a b -> b a
+~ is
+    infixr
+    \ a b -> a b
+
++ is infixl
+
+type IO is a b
+
+ret is
+    \a s -> IO a s
+
+>>> is
+    infixl
+    \a b s -> (\(IO a s) -> b s) (a s)
+>=> is
+    infixl
+    \a b s -> (\(IO a s) -> b a s) (a s)
+
+
+main is
+    ST | (
+            ret (1 + 3)
+        >=> (\a -> printI(a))
+        >>> ret 0
+    )
+////////////////////////////
+str is "Hello"
+
+char1 is str[8]
+
+= is
+    infixr
+    \a b s -> set a b s
+
+edit is
+    \str n s -> (
+        loop is
+            \str 0 s -> ret s
+            \str n s -> (
+                (str[n] = n)
+            >>> loop str (n-1)
+            )
+    )
+
+main is ST | edit str 5

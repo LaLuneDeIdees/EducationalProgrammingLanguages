@@ -1,0 +1,1252 @@
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+
+type A is U8
+type List with a is
+    Nil
+    infixr : -> a (List a)
+
+: is
+	infixr
+	a -> List a -> List a
+
+type B is (List Char)
+
+type C with a is (a (C a))
+
+
+
+tmpa is 123 as A
+
+<> is
+    strict
+    infixl
+    List A -> U32 -> A
+    \ (List x _) 0 -> x
+    \ (List _ xs) i -> xs <> (i - 1)
+
+
+sugar if else
+sugar then
+
+* is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I32 -> I32 -> I32
+
+- is
+	infixl
+	I16 -> I16 -> I16
+
+mYtrue is \x y -> x
+
+tmp is if mYtrue then 1 else 0
+
+main is fac 100
+
+y is \f -> f (y f)
+y` is \f -> (\x -> f (x x)) (\x -> f(x x))
+
+
+fac is
+    (
+        y fac
+        fac is
+            \_ 1 -> 1
+            \fac x -> x * (fac (x - 1))
+    )
+

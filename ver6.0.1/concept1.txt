@@ -1,0 +1,282 @@
+// functional
+// lazy|strong
+// algeraic types and pattern match?
+// lambda calculus
+// type system
+
+sugar then else
+      //else
+      //[ ] -> Nil
+      //a, b -> a : b
+
+
+type Char is U8
+
+
+//type Ref with a is
+//  Null -> 0
+//  Ref -> u32
+
+//i8 i16 i32 i64 u8 u16 u32 i32
+//f8 f16 f32 f64
+//Type of ptr - Type*, example: i8*
+//constructor of ptr(or cast) is: Ptr addr as *Type
+//Get addr: &L-values
+//in code use: (&L-value -> Ptr addr)
+//item from ref = ref[0]
+
+// FIXME
+//Type[size] (cast to Type*, but in program we can't cast from Array to Array wich size is not equal)
+//example i8[10][12] her type in program with check is i8**, but is too
+// when you want cast i8[10][12]
+//arr = {1, 2, 3} as u8*
+// arr1 = Ptr addr as u16*
+//        (arr -> Ptr addr)
+
+////////////////////////////////////////////////////////////////////////////////
+//hello world
+//import stdio here
+
+type String is
+  null
+  string -> Ptr Char
+
+
+type List with a is
+  Nil
+  Cons -> a (List a)
+
+
+type String2 is (list char)
+
+// 3,2,1,nil
+myFisrtList is
+  cons 1 nil | cons 2 | cons 3
+//data follow from left to right
+
+
+// 1,2,3,nil
+mySeconList is
+  cons 1 ~ cons 2 ~ cons 3 nil
+//data follow from right to left
+
+
+type List2 with a is
+  nil
+  infixr : -> a (List2 a)
+
+
+<> is
+  infixl
+// get element from index in List
+  \ (List2 a _) 0 -> a
+  \ (List2 a l) n -> l <> (n - 1)
+
+
+myThirdlist is
+  1 : 2 : 3 : 4 : 5 : 6 : nil
+
+fourthElement is
+  myThirdlist <> 4
+
+
++ is
+	Arc -> Arc -> Arc
+	infixl
+
+type ST is
+	ST
+
+++ is
+	a -> a -> ST -> a
+  infixl
+	\ a b -> asm a b
+
+
++ is
+	inline
+  List a -> List a -> List a
+	\ (List a nil) c -> cons a c
+	\ (List a b) c -> cons a (b + c)
+
+_cast_List2 is
+  \ _ 0 -> nil
+  \ a n -> (
+    castLoop n n
+    castLoop is
+      \ _ 0 -> nil
+      \ n i -> a[n - i] : (castLoop n (i-1))
+  )
+
+//or with use refference to array element
+//type can be
+// a* -> Int -> List a
+_cast_List2_test is
+  \ _ 0 -> nil  //is size of input array is 0 then return empty list
+  \ a n -> a[0] : _cast_List2_test` a+1 n-1 //or without a+1 is &a[1]
+  //a[0] == *a
+  //else list is first element and Cast to List of Tail
+  //we use size parameter, because like in C  we can't get size of static array
+  //in dinamic
+  //when function use static array it will be monomorphic in any uses
+  // for correct indexing
+
+
+printList is
+  strict
+    \ nil -> ST
+    \ (a : nil) -> a
+    \ (a : l) -> (
+      ST | print a | printList l
+    )
+
+
+print is
+  string -> ST
+  strict
+    \ _ -> ST // cast _ to ''
+    \ (string s) -> syscall 4 1 &s (len s) null
+
+pow2` is strict; \x -> x * x
+
+main is (
+  ST | print ~ IntToString 123456789 | printList ~ _cast_List2_test {1, 2, 3, 4} 4
+)
+
+
+
+celInt is 12 as u32
+a is 12.3
+b is 234 as f16
+c is -1.234E-2
+d is 123
+//On a modern Mac, a float is represented in 32 bits, and has a precision of 24 significant bits. 8 bits are used to encode the exponent.
+//A STuble number is represented in 64 bits, with a precision of 53 significant bits. 11 bits are used to encode the exponent.
+//The type long STuble is represented in 80 bits, has a precision of 64 significant bits. 15 bits are used to encode the exponent.
+//sizeOfOneListElements is sizeof (List char)
+
+//Operator 	Name 	Example
+// = 	|eq 	  |a = b
+// + 	|Addition 	    |a + b
+// - 	|Subtraction 	  |a - b
+// * 	|Multiplication |	a * b
+// / 	|Division 	    |a / b
+// % 	|Modulo 	      |a % b
+//+ 	Unary plus 	+a
+//- 	Unary minus 	-a
+//!= 	Not equal operator 	a != b
+//> 	Bigger than 	a > b
+//< 	Less than 	a < b
+//>= 	Bigger than or equal to 	a >= b
+//<= 	Less than or equal to 	a <= b
+// and xor not or
+
+//() & []
+//scobe
+//- unary cast to negate
+//* / %             12
+//+ -               11
+// >> <<            10
+// > < >= <=         9
+// = !=              8
+// and               7
+// xor               6
+// not               5
+// or                4
+//defalt             3
+// infix function    2
+// | ~               1
+
+//1 + a * 4 and 1 << 3 : 123 <> succ 12
+
+//succ 1 + a * 4 and 1 << 3 : 123 : Nil <> succ 12
+//(succ 1) + a * 4 and 1 << 3 : 123 : Nil <> (succ 12)
+//scobes
+
+// a < b < c > g > h < s > g
+// ((a < b) < c ) > (g > ((h < s) > g))
+
+// >
+// a b < c < g h > > s < g >
+
+// (((((a < b) < c) > (g > h)) < s) > g)
+
+// > > <
+// (((a b <) c <) (g h >) >)
+
+//right more than left
+//right always wait in stack dep
+
+
+//1 a 4 * + 1 3 << and 123 succ 12 <> :
+
+//type Mutable with a is
+//  Mutable -> a
+type Mutable with a is a
+
+set is
+  Mutable a -> a -> Mutable a
+  \ (Mutable _) a -> Mutable a
+
+get is
+  Mutable a -> a
+  \ (Mutable a) -> a
+
+
+//type Poly with a is
+//  Poly -> (list a)
+type Poly with a is (list a)
+
+| is
+  infixr
+  (a -> Poly b) -> (b -> Poly c) -> a -> Poly c
+  \ f g x -> (
+    Poly (map g l1)
+    l1 is (\ (Poly l) -> l) ~ f x
+  )
+
+
+~ is
+  infixr
+  (b -> c) -> (a -> b) -> a -> c
+  \f g x -> g x | f
+
+| is
+  infixl
+  (a -> b) -> (b -> c) -> a -> c
+  \ f g x -> f x | g
+
+| is infixl
+  a -> (a -> b) -> b
+  \ f g -> g f
+
+arr is {} as Ptr char
+//type arr is ptr char
+arr1 is {1,2,3,4} as Ptr char
+elm1 is arr1[0]
+elm2 is arr1[1]
+
+//Not use this. It only  example
+elm2_2 is (
+  toCharArr &arr[1] | [0]
+  toCharArr is \ (Ptr addr) -> addr as Ptr char
+)
+elm2_3 is (&arr1[1])[0]
+
+
+addr is &elm2
+elm2FromAddr is addr[0]
+
+add3 is inline; strict
+  \ a b c -> a + b + c
+
+genericXor is
+	\ a b -> not (not (not a) or (not b)) or (not a or b)
+  // not (not (not a or not b) or (not (a or b)))
+  // not a and b
+// (a b) (c (c1 d a))
+// a +b *c | \ x -> x/2
+//
+
+
+////////////////////////////////////////////////////////////////////////////////

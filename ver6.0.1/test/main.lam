@@ -1,0 +1,38 @@
+#Name   | |lam
+n0 = \f x.x
+succ = \n f x.f(n f x)
+
+# true = \ x y. x
+# false = \x y.y
+# or = \a b.a true b
+# not = \a.a false true
+# and = \a b.a b false
+# xor = \a b.not (or (and a b) (not (or a b)))
+# isZero = \n. n (\x.false) true
+
+
+# pair = \x y c.c x y
+# fst = \p.p (\x y.x)
+# snd = \p.p (\x y.y)
+
+
+
+# mult = \a b f x. a b f x
+add = \a b f x. b f(a f x)
+# square = \a. mult  a a
+
+# pred_f = \f p.fst p (pair false (snd p)) (pair false (f (snd p)))
+
+# pred = \n f x.isZero n n0 (snd (n (pred_f f) (pair true x)))
+# minus = \a b.b pred a
+
+
+# Y = \f. (\x.x x) (\x.f (x x))
+# fib = Y (\fib a b n.isZero n a (fib (b) (add a b) (pred n)))
+
+# fac = Y (\fac n.isZero n (succ n0) (mult n (fac (pred n))))
+# main =  fib n0 (succ n0) (\f x.f(f(f(f(f(f(x))))))) I I I
+
+calc = \x f.I I I I I I f x
+strict = \f x.calc x (\x.f x)
+main = strict (strict add) (succ n0) (succ n0) I I

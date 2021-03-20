@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>The C Beginner's Handbook: Learn C Programming Language basics in just a few hours</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism.css">
+    <link rel="stylesheet" type="text/css" href="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-unescaped-markup.css">
+
+    <link href="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/css.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/screen.css">
+    <link rel="stylesheet" type="text/css" href="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/algolia-search.css">
+
+    <script type="text/javascript" async="" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/analytics.js"></script><script src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/algoliasearch.js"></script>
+    <script src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/autocomplete.js"></script>
+
+    <script src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/a.js"></script>
+
+    <link rel="shortcut icon" href="https://www.freecodecamp.org/news/favicon.png" type="image/png">
+    <link rel="canonical" href="https://www.freecodecamp.org/news/the-c-beginners-handbook/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <link rel="amphtml" href="https://www.freecodecamp.org/news/the-c-beginners-handbook/amp/">
+    
+    <meta property="og:site_name" content="freeCodeCamp.org">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The C Beginner's Handbook: Learn C Programming Language basics in just a few hours">
+    <meta property="og:description" content="This C Beginner's Handbook follows the 80/20 rule. You'll learn 80% of the C
+programming language in 20% of the time.
+
+This approach will give you a well-rounded overview of the language.
+
+This handbook does not try to cover everything under the sun related to C. It
+focuses on the core of the language, trying to simplify the more complex topics.
+
+And note: You can get a PDF and ePub version of this C Beginner's Handbook here
+[https://flaviocopes.com/page/c-handbook/].
+
+Enjoy!
+
+Table of Contents
+">
+    <meta property="og:url" content="https://www.freecodecamp.org/news/the-c-beginners-handbook/">
+    <meta property="og:image" content="https://www.freecodecamp.org/news/content/images/2020/03/coverc-1.jpg">
+    <meta property="article:published_time" content="2020-03-09T11:50:52.000Z">
+    <meta property="article:modified_time" content="2020-03-10T10:59:04.000Z">
+    <meta property="article:tag" content="C Programming">
+    
+    <meta property="article:publisher" content="https://www.facebook.com/freecodecamp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The C Beginner's Handbook: Learn C Programming Language basics in just a few hours">
+    <meta name="twitter:description" content="This C Beginner's Handbook follows the 80/20 rule. You'll learn 80% of the C
+programming language in 20% of the time.
+
+This approach will give you a well-rounded overview of the language.
+
+This handbook does not try to cover everything under the sun related to C. It
+focuses on the core of the language, trying to simplify the more complex topics.
+
+And note: You can get a PDF and ePub version of this C Beginner's Handbook here
+[https://flaviocopes.com/page/c-handbook/].
+
+Enjoy!
+
+Table of Contents
+">
+    <meta name="twitter:url" content="https://www.freecodecamp.org/news/the-c-beginners-handbook/">
+    <meta name="twitter:image" content="https://www.freecodecamp.org/news/content/images/2020/03/coverc-1.jpg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="Flavio Copes">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="C Programming">
+    <meta name="twitter:site" content="@freecodecamp">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="1032">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "freeCodeCamp.org",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.freecodecamp.org/news/content/images/2019/11/fcc_primary_large_24X210.svg",
+            "width": 210,
+            "height": 24
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Flavio Copes",
+        "image": {
+            "@type": "ImageObject",
+            "url": "//www.gravatar.com/avatar/24995cce66283a4c96b559308b322e9e?s=250&d=mm&r=x",
+            "width": 250,
+            "height": 250
+        },
+        "url": "https://www.freecodecamp.org/news/author/flavio/",
+        "sameAs": []
+    },
+    "headline": "The C Beginner&#x27;s Handbook: Learn C Programming Language basics in just a few hours",
+    "url": "https://www.freecodecamp.org/news/the-c-beginners-handbook/",
+    "datePublished": "2020-03-09T11:50:52.000Z",
+    "dateModified": "2020-03-10T10:59:04.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://www.freecodecamp.org/news/content/images/2020/03/coverc-1.jpg",
+        "width": 2000,
+        "height": 1032
+    },
+    "keywords": "C Programming",
+    "description": "This C Beginner&#x27;s Handbook follows the 80/20 rule. You&#x27;ll learn 80% of the C\nprogramming language in 20% of the time.\n\nThis approach will give you a well-rounded overview of the language.\n\nThis handbook does not try to cover everything under the sun related to C. It\nfocuses on the core of the language, trying to simplify the more complex topics.\n\nAnd note: You can get a PDF and ePub version of this C Beginner&#x27;s Handbook here\n[https://flaviocopes.com/page/c-handbook/].\n\nEnjoy!\n\nTable of Contents\n",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.freecodecamp.org/news/"
+    }
+}
+    </script>
+
+    <meta name="generator" content="Ghost 2.37">
+    <link rel="alternate" type="application/rss+xml" title="freeCodeCamp.org" href="https://www.freecodecamp.org/news/rss/">
+
+<style id="fit-vids-style">.fluid-width-video-container{flex-grow: 1;width:100%;}.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="post-template tag-c-programming">
+
+    <div class="site-wrapper">
+        <nav class="site-nav nav-padding">
+    <div class="site-nav-left">
+        <form id="search-form" onsubmit="submitSearch()">
+  <div role="search" class="searchbox__wrapper">
+    <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input type="search" placeholder="Search 6,000+ tutorials" id="search-input" class="aa-input" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Lato, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;"></pre><span class="aa-dropdown-menu" style="position: absolute; top: 100%; z-index: 100; left: 0px; right: auto; display: none;" role="listbox" id="algolia-autocomplete-listbox-0"><div class="aa-dataset-1"></div></span></span>
+    <button type="submit" title="Submit your search query." class="ais-SearchBox-submit">
+      <svg class="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
+        <path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"></path>
+      </svg>
+    </button>
+  </div>
+</form>
+
+<script>
+  const client = algoliasearch('QMJYL5WYTI', '4318af87aa3ce128708f1153556c6108');
+  const index = client.initIndex('news');
+  const screenWidth = window.screen.width;
+  const screenHeight = window.screen.height;
+  const hitsToRender = (screenWidth >= 767 && screenHeight >= 768) ? 8 : 5;
+  autocomplete('#search-input', { 
+      hint: false,
+      keyboardShortcuts: ['s', 191]
+    }, [
+    {
+      source: autocomplete.sources.hits(index, { hitsPerPage: hitsToRender }),
+      debounce: 250,
+      templates: {
+        suggestion: (suggestion, result) => {
+          hits = true;
+          return `
+            <a href="${suggestion.url}">
+              <div class="algolia-result">
+                <span>${suggestion._highlightResult.title.value}</span>
+              </div>
+            </a>
+          `;
+        },
+        empty: (options) => {
+          hits = false;
+          return `
+            <div class="aa-suggestion footer-suggestion no-hits-footer">
+              <div class="algolia-result">
+                <span>
+                  No tutorials found
+                </span>
+              </div>
+            </div>
+          `;
+        },
+        footer: (query, result) => {
+          if (!query.isEmpty) {
+            return `
+              <div class="aa-suggestion footer-suggestion">
+                <a id="algolia-footer-selector" href="https://www.freecodecamp.org/news/search?query=${result.query}">
+                  <div class="algolia-result algolia-footer">
+                    <span>See all results for ${result.query}</span>
+                  </div>
+                </a>
+              </div>
+            `;
+          }
+        }
+      }
+    }
+  ]).on('autocomplete:closed', () => {
+    // Clicked off dropdown or pressed Esc key
+    hits = false;
+  }).on('autocomplete:selected', (event, suggestion, dataset, context) => {
+    // Set to hit URL if hit is selected by mouse click or enter key
+    hitSelected = suggestion.url;
+    // Do nothing on click, as the browser will already do it
+    if (context.selectionMethod === 'click') {
+      return;
+    }
+    // Change the page, for example, on other events
+    window.location.assign(suggestion.url);
+  });
+
+  /* 
+    If no hits in the Autocomplete dropdown are highlighted,
+    treat input like normal search bar
+  */
+  const searchForm = document.getElementById('search-form');
+  const input = document.getElementById('search-input');
+  let searchQuery, hitSelected, hits;
+
+  input.addEventListener('keyup', e => {
+    searchQuery = input.value;
+  });
+
+  /*
+    Prevent form from being submitted when magnifying
+    glass is clicked or enter pressed with no query
+    or hits
+  */
+  searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+  });
+
+  /*
+    Search for highlighted hit or search query
+    when search button or enter is pressed
+  */
+  function submitSearch() {
+    hitSelected = document.getElementsByClassName('aa-cursor')[0];
+
+    if (hitSelected && searchQuery) {
+      const articleUrl = hitSelected.querySelector('a').href;
+      window.location.assign(articleUrl);
+    } else if (!hitSelected && searchQuery && hits) {
+      window.location.assign(`https://www.freecodecamp.org/news/search?query=${searchQuery}`);
+    }
+  }
+</script>
+    </div>
+    <div class="site-nav-middle">
+        <a class="site-nav-logo" href="https://www.freecodecamp.org/news"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/fcc_primary_large_24X210.svg" alt="freeCodeCamp.org"></a>
+    </div>
+    <div class="site-nav-right">
+        <a class="toggle-button-nav" href="https://www.freecodecamp.org/donate/">
+            Donate
+        </a>
+    </div>
+
+</nav>
+        <div class="under-header-content jumbotron">
+    <h2 class="donation-banner">
+        Stay safe, friends. Learn to code from home. <a href="https://www.freecodecamp.org/">Use our free 2,000 hour
+            curriculum.</a>
+    </h2>
+</div>
+        <div id="error-message"></div>
+
+        
+
+
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-c-programming ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2020-03-09">9 March 2020</time>
+                    <span class="date-divider">/</span>
+                    <a href="https://www.freecodecamp.org/news/tag/c-programming/">
+                        #C Programming
+                    </a>
+                </section>
+                <h1 class="post-full-title">The C Beginner's Handbook: Learn C Programming Language basics in just a few hours</h1>
+            </header>
+
+            <div class="post-full-author-header">
+
+
+                
+<section class="author-card">
+    <img class="author-profile-image" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/24995cce66283a4c96b559308b322e9e.png" alt="Flavio Copes">
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="https://www.freecodecamp.org/news/author/flavio/">Flavio Copes</a></h4>
+        <p>Read <a href="https://www.freecodecamp.org/news/author/flavio/">more posts</a> by this author.</p>
+    </section>
+</section>
+
+
+            </div>
+
+            <figure class="post-full-image">
+                <img srcset="/news/content/images/size/w300/2020/03/coverc-1.jpg 300w,
+                            /news/content/images/size/w600/2020/03/coverc-1.jpg 600w,
+                            /news/content/images/size/w1000/2020/03/coverc-1.jpg 1000w,
+                            /news/content/images/size/w2000/2020/03/coverc-1.jpg 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/coverc-1.jpg" alt="The C Beginner's Handbook: Learn C Programming Language basics in just a few hours" onerror="this.style.display='none'">
+            </figure>
+
+            <section class=" post-full-content">
+                <div class="post-content">
+                    <p>This C Beginner's Handbook follows the 80/20 rule. You'll learn 80% of the C programming language in 20% of the time.</p><p>This approach will give you a well-rounded overview of the language.</p><p>This
+ handbook does not try to cover everything under the sun related to C. 
+It focuses on the core of the language, trying to simplify the more 
+complex topics.</p><p>And note: <a href="https://flaviocopes.com/page/c-handbook/">You can get a PDF and ePub version of this C Beginner's Handbook here</a>.</p><p>Enjoy!</p><h2 id="table-of-contents">Table of Contents</h2><ol><li><a href="#introduction-to-c">Introduction to C</a></li><li><a href="#variables-and-types">Variables and types</a></li><li><a href="#constants">Constants</a></li><li><a href="#operators">Operators</a></li><li><a href="#conditionals">Conditionals</a></li><li><a href="#loops">Loops</a></li><li><a href="#arrays">Arrays</a></li><li><a href="#strings">Strings</a></li><li><a href="#pointers">Pointers</a></li><li><a href="#functions">Functions</a></li><li><a href="#input-and-output">Input and output</a></li><li><a href="#variables-scope">Variables scope</a></li><li><a href="#static-variables">Static variables</a></li><li><a href="#global-variables">Global variables</a></li><li><a href="#type-definitions">Type definitions</a></li><li><a href="#enumerated-types">Enumerated Types</a></li><li><a href="#structures">Structures</a></li><li><a href="#command-line-parameters">Command line parameters</a></li><li><a href="#header-files">Header files</a></li><li><a href="#the-preprocessor">The preprocessor</a></li><li><a href="#conclusion">Conclusion</a></li></ol><h2 id="introduction-to-c">Introduction to C</h2><p>C
+ is probably the most widely known programming language. It is used as 
+the reference language for computer science courses all over the world, 
+and it's probably the language that people learn the most in school 
+along with Python and Java.</p><p>I remember it being my second programming language ever, after Pascal.</p><p>C
+ is not just what students use to learn programming. It's not an 
+academic language. And I would say it's not the easiest language, 
+because C is a rather low level programming language.</p><p>Today, C is 
+widely used in embedded devices, and it powers most of the Internet 
+servers, which are built using Linux. The Linux kernel is built using C,
+ and this also means that C powers the core of all Android devices. We 
+can say that C code runs a good portion of the entire world. Right now. 
+Pretty remarkable.</p><p>When it was created, C was considered a high 
+level language, because it was portable across machines. Today we kind 
+of take for granted that we can run a program written on a Mac on 
+Windows or Linux, perhaps using Node.js or Python. </p><p>Once upon a 
+time, this was not the case at all. What C brought to the table was a 
+language that was simple to implement and that had a compiler that could
+ be easily ported to different machines.</p><p>I said compiler: C is a 
+compiled programming language, like Go, Java, Swift or Rust. Other 
+popular programming language like Python, Ruby or JavaScript are 
+interpreted. The difference is consistent: a compiled language generates
+ a binary file that can be directly executed and distributed.</p><p>C is
+ not garbage collected. This means we have to manage memory ourselves. 
+It's a complex task and one that requires a lot of attention to prevent 
+bugs, but it is also what makes C ideal to write programs for embedded 
+devices like Arduino.</p><p>C does not hide the complexity and the 
+capabilities of the machine underneath. You have a lot of power, once 
+you know what you can do.</p><p>I want to introduce the first C program now, which we'll call "Hello, World!"</p><p>hello.c</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Let's describe the program source code: we first import the <code>stdio</code> library (the name stands for standard input-output library).</p><p>This library gives us access to input/output functions.</p><p>C
+ is a very small language at its core, and anything that's not part of 
+the core is provided by libraries. Some of those libraries are built by 
+normal programmers, and made available for others to use. Some other 
+libraries are built into the compiler. Like <code>stdio</code> and others.</p><p><code>stdio</code> is the library that provides the <code>printf()</code> function.</p><p>This function is wrapped into a <code>main()</code> function. The <code>main()</code> function is the entry point of any C program.</p><p>But what is a function, anyway?</p><p>A function is a routine that takes one or more arguments, and returns a single value.</p><p>In the case of <code>main()</code>, the function gets no arguments, and returns an integer. We identify that using the <code>void</code> keyword for the argument, and the <code>int</code> keyword for the return value.</p><p>The
+ function has a body, which is wrapped in curly braces. Inside the body 
+we have all the code that the function needs to perform its operations.</p><p>The <code>printf()</code>
+ function is written differently, as you can see. It has no return value
+ defined, and we pass a string, wrapped in double quotes. We didn't 
+specify the type of the argument.</p><p>That's because this is a function invocation. Somewhere, inside the <code>stdio</code> library, <code>printf</code> is defined as</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span>format<span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>You don't need to understand what this means now, but in short, this is the definition. And when we call <code>printf("Hello, World!");</code>, that's where the function is run.</p><p>The <code>main()</code> function we defined above:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>will be run by the operating system when the program is executed.</p><p>How do we execute a C program?</p><p>As
+ mentioned, C is a compiled language. To run the program we must first 
+compile it. Any Linux or macOS computer already comes with a C compiler 
+built-in. For Windows, you can use the Windows Subsystem for Linux 
+(WSL).</p><p>In any case, when you open the terminal window you can type <code>gcc</code>, and this command should return an error saying that you didn't specify any file:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_006.png" class="kg-image"></figure><!--kg-card-end: image--><p>That's good. It means the C compiler is there, and we can start using it.</p><p>Now type the program above into a <code>hello.c</code> file. You can use any editor, but for the sake of simplicity I'm going to use the <code>nano</code> editor in the command line:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_003.png" class="kg-image"></figure><!--kg-card-end: image--><p>Type the program:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_002.png" class="kg-image"></figure><!--kg-card-end: image--><p>Now press <code>ctrl-X</code> to exit: </p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_007.png" class="kg-image"></figure><!--kg-card-end: image--><p>Confirm by pressing the <code>y</code> key, then press enter to confirm the file name:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_009.png" class="kg-image"></figure><!--kg-card-end: image--><p>That's it, we should be back to the terminal now: </p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_004.png" class="kg-image"></figure><!--kg-card-end: image--><p>Now type</p><!--kg-card-begin: code--><pre class=" language-sh"><code class=" language-sh">gcc hello.c -o hello
+</code></pre><!--kg-card-end: code--><p>The program should give you no errors:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_005.png" class="kg-image"></figure><!--kg-card-end: image--><p>but it should have generated a <code>hello</code> executable. Now type</p><!--kg-card-begin: code--><pre class=" language-sh"><code class=" language-sh">./hello
+</code></pre><!--kg-card-end: code--><p>to run it:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10_008.png" class="kg-image"></figure><!--kg-card-end: image--><p>I prepend <code>./</code> to the program name to tell the terminal that the command is in the current folder</p><p>Awesome!</p><p>Now if you call <code>ls -al hello</code>, you can see that the program is only 12KB in size:</p><!--kg-card-begin: image--><figure class="kg-card kg-image-card"><img src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/Screen-Shot-2020-01-29-at-10.png" class="kg-image"></figure><!--kg-card-end: image--><p>This
+ is one of the pros of C: it's highly optimized, and this is also one of
+ the reasons it's this good for embedded devices that have a very 
+limited amount of resources.</p><h2 id="variables-and-types">Variables and types</h2><p>C is a statically typed language.</p><p>This means that any variable has an associated type, and this type is known at compilation time.</p><p>This is very different than how you work with variables in Python, JavaScript, PHP and other interpreted languages.</p><p>When you create a variable in C, you have to specify the type of a variable at the declaration.</p><p>In this example we initialize a variable <code>age</code> with type <code>int</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>A variable name can contain any 
+uppercase or lowercase letter, can contain digits and the underscore 
+character, but it can't start with a &nbsp;digit. <code>AGE</code> and <code>Age10</code> are valid variable names, <code>1age</code> is not.</p><p>You can also initialize a variable at declaration, specifying the initial value:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Once you declare a variable, you are then able to use it in your program code. You can change its value at any time, using the <code>=</code> operator for example, like in <code>age = 100;</code> (provided the new value is of the same type).</p><p>In this case:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    age <span class="token operator">=</span> <span class="token number">37.2</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>the compiler will raise a warning at compile time, and will convert the decimal number to an integer value.</p><p>The <a href="http://localhost:4000/c-introduction">C</a> built-in data types are <code>int</code>, <code>char</code>, <code>short</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>long double</code>. Let's find out more about those.</p><h3 id="integer-numbers">Integer numbers</h3><p>C provides us the following types to define integer values:</p><ul><li><code>char</code></li><li><code>int</code></li><li><code>short</code></li><li><code>long</code></li></ul><p>Most of the time, you'll likely use an <code>int</code> to store an integer. But in some cases, you might want to choose one of the other 3 options.</p><p>The <code>char</code> type is commonly used to store letters of the ASCII chart, but it can be used to hold small integers from <code>-128</code> to <code>127</code>. It takes at least 1 byte.</p><p><code>int</code> takes at least 2 bytes. <code>short</code> takes at least 2 bytes. <code>long</code> takes at least 4 bytes.</p><p>As
+ you can see, we are not guaranteed the same values for different 
+environments. We only have an indication. The problem is that the exact 
+numbers that can be stored in each data type depends on the 
+implementation and the architecture.</p><p>We're guaranteed that <code>short</code> is not longer than <code>int</code>. And we're guaranteed <code>long</code> is not shorter than <code>int</code>.</p><p>The
+ ANSI C spec standard determines the minimum values of each type, and 
+thanks to it we can at least know what's the minimum value we can expect
+ to have at our disposal.</p><p>If you are programming C on an Arduino, different board will have different limits.</p><p>On an Arduino Uno board, <code>int</code> stores a 2 byte value, ranging from <code>-32,768</code> to <code>32,767</code>. On a Arduino MKR 1010, <code>int</code> stores a 4 bytes value, ranging from <code>-2,147,483,648</code> to <code>2,147,483,647</code>. Quite a big difference.</p><p>On all Arduino boards, <code>short</code> stores a 2 bytes value, ranging from <code>-32,768</code> to <code>32,767</code>. <code>long</code> store 4 bytes, ranging from <code>-2,147,483,648</code> to <code>2,147,483,647</code>.</p><h3 id="unsigned-integers">Unsigned integers</h3><p>For all the above data types, we can prepend <code>unsigned</code> to start the range at 0, instead of a negative number. This might make sense in many cases.</p><ul><li><code>unsigned char</code> will range from <code>0</code> to at least <code>255</code></li><li><code>unsigned int</code> will range from <code>0</code> to at least <code>65,535</code></li><li><code>unsigned short</code> will range from <code>0</code> to at least <code>65,535</code></li><li><code>unsigned long</code> will range from <code>0</code> to at least <code>4,294,967,295</code></li></ul><h3 id="the-problem-with-overflow">The problem with overflow</h3><p>Given
+ all those limits, a question might come up: how can we make sure our 
+numbers do not exceed the limit? And what happens if we do exceed the 
+limit?</p><p>If you have an <code>unsigned int</code> number at 255, and you increment it, you'll get 256 in return. As expected. If you have an <code>unsigned char</code> number at 255, and you increment it, you'll get 0 in return. It resets starting from the initial possible value.</p><p>If you have a <code>unsigned char</code> number at 255 and you add 10 to it, you'll get the number <code>9</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">unsigned</span> <span class="token keyword">char</span> j <span class="token operator">=</span> <span class="token number">255</span><span class="token punctuation">;</span>
+  j <span class="token operator">=</span> j <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 9 */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>If you don't have a signed 
+value, the behavior is undefined. It will basically give you a huge 
+number which can vary, like in this case:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> j <span class="token operator">=</span> <span class="token number">127</span><span class="token punctuation">;</span>
+  j <span class="token operator">=</span> j <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 4294967177 */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>In other words, C does not protect you from going over the limits of a type. You need to take care of this yourself.</p><h3 id="warnings-when-declaring-the-wrong-type">Warnings when declaring the wrong type</h3><p>When you declare the variable and initialize it with the wrong value, the <code>gcc</code> compiler (the one you're probably using) should warn you:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> j <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><!--kg-card-begin: code--><pre><code>hello.c:4:11: warning: implicit conversion 
+  from 'int' to
+      'char' changes value from 1000 to -24
+      [-Wconstant-conversion]
+        char j = 1000;
+             ~   ^~~~
+1 warning generated.
+</code></pre><!--kg-card-end: code--><p>And it also warns you in direct assignments:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> j<span class="token punctuation">;</span>
+  j <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>But not if you increase the number using, for example, <code>+=</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  j <span class="token operator">+=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h3 id="floating-point-numbers">Floating point numbers</h3><p>Floating
+ point types can represent a much larger set of values than integers 
+can, and can also represent fractions, something that integers can't do.</p><p>Using floating point numbers, we represent numbers as decimal numbers times powers of 10.</p><p>You might see floating point numbers written as</p><ul><li><code>1.29e-3</code></li><li><code>-2.3e+5</code></li></ul><p>and in other seemingly weird ways.</p><p>The following types:</p><ul><li><code>float</code></li><li><code>double</code></li><li><code>long double</code></li></ul><p>are used to represent numbers with decimal points (floating point types). All can represent both positive and negative numbers.</p><p>The minimum requirements for any C implementation is that <code>float</code> can represent a range between 10^-37 and 10^+37, and is typically implemented using 32 bits. <code>double</code> can represent a bigger set of numbers. <code>long double</code> can hold even more numbers.</p><p>The exact figures, as with integer values, depend on the implementation.</p><p>On a modern Mac, a <code>float</code> is represented in 32 bits, and has a precision of 24 significant bits. 8 bits are used to encode the exponent. </p><p>A <code>double</code> number is represented in 64 bits, with a precision of 53 significant bits. 11 bits are used to encode the exponent. </p><p>The type <code>long double</code> is represented in 80 bits, has a precision of 64 significant bits. 15 bits are used to encode the exponent.</p><p>On your specific computer, how can you determine the specific size of the types? You can write a program to do that:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"char size: %lu bytes\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"int size: %lu bytes\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"short size: %lu bytes\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">short</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"long size: %lu bytes\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"float size: %lu bytes\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"double size: %lu bytes\n"</span><span class="token punctuation">,</span> 
+    <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"long double size: %lu bytes\n"</span><span class="token punctuation">,</span> 
+    <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">long</span> <span class="token keyword">double</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>In my system, a modern Mac, it prints:</p><!--kg-card-begin: code--><pre><code>char size: 1 bytes
+int size: 4 bytes
+short size: 2 bytes
+long size: 8 bytes
+float size: 4 bytes
+double size: 8 bytes
+long double size: 16 bytes
+</code></pre><!--kg-card-end: code--><h2 id="constants">Constants</h2><p>Let's now talk about constants.</p><p>A constant is declared similarly to variables, except it is prepended with the <code>const</code> keyword, and you always need to specify a value.</p><p>Like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">const</span> <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>This is perfectly valid C, although it is common to declare constants uppercase, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">const</span> <span class="token keyword">int</span> AGE <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>It's just a convention, but one 
+that can greatly help you while reading or writing a C program as it 
+improves readability. Uppercase name means constant, lowercase name 
+means variable.</p><p>A constant name follows the same rules for 
+variable names: can contain any uppercase or lowercase letter, can 
+contain digits and the underscore character, but it can't start with a 
+digit. <code>AGE</code> and <code>Age10</code> are valid variable names, <code>1AGE</code> is not.</p><p>Another way to define constants is by using this syntax:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">define</span> AGE 37</span>
+</code></pre><!--kg-card-end: code--><p>In this case, you don't need to add a type, and you don't also need the <code>=</code> equal sign, and you omit the semicolon at the end.</p><p>The C compiler will infer the type from the value specified, at compile time.</p><h2 id="operators">Operators</h2><p>C offers us a wide variety of operators that we can use to operate on data.</p><p>In particular, we can identify various groups of operators:</p><ul><li>arithmetic operators</li><li>comparison operators</li><li>logical operators</li><li>compound assignment operators</li><li>bitwise operators</li><li>pointer operators</li><li>structure operators</li><li>miscellaneous operators</li></ul><p>In this section I'm going to detail all of them, using 2 imaginary variables <code>a</code> and <code>b</code> as examples.</p><p>I am keeping bitwise operators, structure operators and pointer operators out of this list, to keep things simpler</p><h3 id="arithmetic-operators">Arithmetic operators</h3><p>In this macro group I am going to separate binary operators and unary operators.</p><!--kg-card-begin: markdown--><p>Binary operators work using two operands:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>Assignment</td>
+<td><code>a = b</code></td>
+</tr>
+<tr>
+<td><code>+</code></td>
+<td>Addition</td>
+<td><code>a + b</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtraction</td>
+<td><code>a - b</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplication</td>
+<td><code>a * b</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Division</td>
+<td><code>a / b</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Modulo</td>
+<td><code>a % b</code></td>
+</tr>
+</tbody>
+</table>
+<p>Unary operators only take one operand:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Unary plus</td>
+<td><code>+a</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Unary minus</td>
+<td><code>-a</code></td>
+</tr>
+<tr>
+<td><code>++</code></td>
+<td>Increment</td>
+<td><code>a++</code> or <code>++a</code></td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>Decrement</td>
+<td><code>a--</code> or <code>--a</code></td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown--><p>The difference between <code>a++</code> and <code>++a</code> is that <code>a++</code> increments the <code>a</code> variable after using it. <code>++a</code> increments the <code>a</code> variable before using it.</p><p>For example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> b<span class="token punctuation">;</span>
+b <span class="token operator">=</span> a<span class="token operator">++</span> <span class="token comment">/* b is 2, a is 3 */</span>
+b <span class="token operator">=</span> <span class="token operator">++</span>a <span class="token comment">/* b is 4, a is 4 */</span>
+</code></pre><!--kg-card-end: code--><p>The same applies to the decrement operator.</p><h3 id="comparison-operators">Comparison operators</h3><!--kg-card-begin: markdown--><table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Equal operator</td>
+<td><code>a == b</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal operator</td>
+<td><code>a != b</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Bigger than</td>
+<td><code>a &gt; b</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+<td><code>a &lt; b</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Bigger than or equal to</td>
+<td><code>a &gt;= b</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal to</td>
+<td><code>a &lt;= b</code></td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown--><h3 id="logical-operators">Logical operators</h3><ul><li><code>!</code> NOT (example: <code>!a</code>)</li><li><code>&amp;&amp;</code> AND (example: <code>a &amp;&amp; b</code>)</li><li><code>||</code> OR (example: <code>a || b</code>)</li></ul><p>Those operators are great when working with boolean values.</p><h3 id="compound-assignment-operators">Compound assignment operators</h3><p>Those operators are useful to perform an assignment and at the same time perform an arithmetic operation:</p><!--kg-card-begin: markdown--><table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+=</code></td>
+<td>Addition assignment</td>
+<td><code>a += b</code></td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td>Subtraction assignment</td>
+<td><code>a -= b</code></td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td>Multiplication assignment</td>
+<td><code>a *= b</code></td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>Division assignment</td>
+<td><code>a /= b</code></td>
+</tr>
+<tr>
+<td><code>%=</code></td>
+<td>Modulo assignment</td>
+<td><code>a %= b</code></td>
+</tr>
+</tbody>
+</table>
+<!--kg-card-end: markdown--><h3 id="the-ternary-operator">The ternary operator</h3><p>The ternary operator is the only operator in C that works with 3 operands, and it’s a short way to express conditionals.</p><p>This is how it looks:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token operator">&lt;</span>condition<span class="token operator">&gt;</span> <span class="token operator">?</span> <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span> <span class="token operator">:</span> <span class="token operator">&lt;</span>expression<span class="token operator">&gt;</span>
+</code></pre><!--kg-card-end: code--><p>Example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c">a <span class="token operator">?</span> b <span class="token operator">:</span> c
+</code></pre><!--kg-card-end: code--><p>If <code>a</code> is evaluated to <code>true</code>, then the <code>b</code> statement is executed, otherwise <code>c</code> is.</p><p>The
+ ternary operator is functionality-wise same as an if/else conditional, 
+except it is shorter to express and it can be inlined into an 
+expression.</p><h3 id="sizeof">sizeof</h3><p>The <code>sizeof</code> operator returns the size of the operand you pass. You can pass a variable, or even a type.</p><p>Example usage:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%ld\n"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%ld"</span><span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h3 id="operator-precedence">Operator precedence</h3><p>With
+ all those operators (and more, which I haven't covered in this post, 
+including bitwise, structure operators, and pointer operators), we must 
+pay attention when using them together in a single expression.</p><p>Suppose we have this operation:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> c <span class="token operator">=</span> b <span class="token operator">+</span> a <span class="token operator">*</span> a <span class="token operator">/</span> b <span class="token operator">-</span> a<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>What's the value of <code>c</code>? Do we get the addition being executed before the multiplication and the division?</p><p>There is a set of rules that help us solve this puzzle.</p><p>In order from less precedence to more precedence, we have:</p><ul><li>the <code>=</code> assignment operator</li><li>the <code>+</code> and <code>-</code> <strong>binary</strong> operators</li><li>the <code>*</code> and <code>/</code> operators</li><li>the <code>+</code> and <code>-</code> unary operators</li></ul><p>Operators also have an associativity rule, which is always left to right except for the unary operators and the assignment.</p><p>In:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> c <span class="token operator">=</span> b <span class="token operator">+</span> a <span class="token operator">*</span> a <span class="token operator">/</span> b <span class="token operator">-</span> a<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We first execute <code>a * a / b</code>, which, due to being left-to-right, we can separate into <code>a * a</code> and the result <code>/ b</code>: <code>2 * 2 = 4</code>, <code>4 / 4 = 1</code>.</p><p>Then we can perform the sum and the subtraction: 4 + 1 - 2. The value of <code>c</code> is <code>3</code>.</p><p>In
+ all cases, however, I want to make sure you realize you can use 
+parentheses to make any similar expression easier to read and 
+comprehend.</p><p>Parentheses have higher priority over anything else.</p><p>The above example expression can be rewritten as:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> c <span class="token operator">=</span> b <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>a <span class="token operator">*</span> a<span class="token punctuation">)</span> <span class="token operator">/</span> b<span class="token punctuation">)</span> <span class="token operator">-</span> a<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>and we don't have to think about it that much.</p><h2 id="conditionals">Conditionals</h2><p>Any programming language provides the programmers the ability to perform choices.</p><p>We want to do X in some cases, and Y in other cases.</p><p>We want to check data, and make choices based on the state of that data.</p><p>C provides us 2 ways to do so.</p><p>The first is the <code>if</code> statement, with its <code>else</code> helper, and the second is the <code>switch</code> statement.</p><h3 id="if">if</h3><p>In an <code>if</code> statement, you can check for a condition to be true, and then execute the block provided in the curly brackets:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>You can append an <code>else</code> block to execute a different block if the original condition turns out to be false:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something else */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Beware of one common source of bugs - always use the comparison operator <code>==</code> in comparisons, and not the assignment operator <code>=</code>. If you don't, the <code>if</code> conditional check will always be true, unless the argument is <code>0</code>, for example if you do:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* never invoked */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Why does this happen? Because the conditional check will look for a boolean result (the result of a comparison), and the <code>0</code> number always equates to a false value. Everything else is true, including negative numbers.</p><p>You can have multiple <code>else</code> blocks by stacking together multiple <code>if</code> statements:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something else */</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something else again */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h3 id="switch">switch</h3><p>If 
+you need to do too many if / else / if blocks to perform a check, 
+perhaps because you need to check the exact value of a variable, then <code>switch</code> can be very useful to you.</p><p>You can provide a variable as condition, and a series of <code>case</code> entry points for each value you expect:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+    <span class="token comment">/* do something */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+    <span class="token comment">/* do something else */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+    <span class="token comment">/* do something else */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>We need a <code>break</code> 
+keyword at the end of each case to avoid the next case being executed 
+when the one before ends. This "cascade" effect can be useful in some 
+creative ways.</p><p>You can add a "catch-all" case at the end, labeled <code>default</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+    <span class="token comment">/* do something */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+    <span class="token comment">/* do something else */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+    <span class="token comment">/* do something else */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token keyword">default</span><span class="token operator">:</span>
+    <span class="token comment">/* handle all the other cases */</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h2 id="loops">Loops</h2><p>C offers us three ways to perform a loop: <strong>for loops</strong>, <strong>while loops</strong> and <strong>do while loops</strong>. They all allow you to iterate over arrays, but with a few differences. Let's see them in detail.</p><h3 id="for-loops">For loops</h3><p>The first and probably most common way to perform a loop is <strong>for loops</strong>.</p><p>Using the <code>for</code> keyword we can define the <em>rules</em> of the loop up front, and then provide the block that is going to be executed repeatedly.</p><p>Like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* instructions to be repeated */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>The <code>(int i = 0; i &lt;= 10; i++)</code> block contains 3 parts of the looping details:</p><ul><li>the initial condition (<code>int i = 0</code>)</li><li>the test (<code>i &lt;= 10</code>)</li><li>the increment (<code>i++</code>)</li></ul><p>We first define a loop variable, in this case named <code>i</code>. <code>i</code> is a common variable name to be used for loops, along with <code>j</code> for nested loops (a loop inside another loop). It's just a convention.</p><p>The variable is initialized at the 0 value, and the first iteration is done. Then it is incremented as the increment part says (<code>i++</code> in this case, incrementing by 1), and all the cycle repeats until you get to the number 10.</p><p>Inside the loop main block we can access the variable <code>i</code> to know at which iteration we are. This program should print <code>0 1 2 3 4 5 5 6 7 8 9 10</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* instructions to be repeated */</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u "</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Loops can also start from a high number, and go a lower number, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* instructions to be repeated */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>You can also increment the loop variable by 2 or another value:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">1000</span><span class="token punctuation">;</span> i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">30</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* instructions to be repeated */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h3 id="while-loops">While loops</h3><p><strong>While loops</strong> is simpler to write than a <code>for</code> loop, because it requires a bit more work on your part.</p><p>Instead of defining all the loop data up front when you start the loop, like you do in the <code>for</code> loop, using <code>while</code> you just check for a condition:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>This assumes that <code>i</code> is already defined and initialized with a value.</p><p>And this loop will be an <strong>infinite loop</strong> unless you increment the <code>i</code>
+ variable at some point inside the loop. An infinite loop is bad because
+ it will block the program, allowing nothing else to happen.</p><p>This is what you need for a "correct" while loop:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>There's one exception to this, and we'll see it in one minute. Before, let me introduce <code>do while</code>.</p><h3 id="do-while-loops">Do while loops</h3><p>While
+ loops are great, but there might be times when you need to do one 
+particular thing: you want to always execute a block, and then <em>maybe</em> repeat it.</p><p>This is done using the <code>do while</code> keyword. In a way it's very similar to a <code>while</code> loop, but slightly different:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">do</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>The block that contains the <code>/* do something */</code> comment is always executed at least once, regardless of the condition check at the bottom.</p><p>Then, until <code>i</code> is less than 10, we'll repeat the block.</p><h3 id="breaking-out-of-a-loop-using-break">Breaking out of a loop using break</h3><p>In
+ all the C loops we have a way to break out of a loop at any point 
+&nbsp;in time, immediately, regardless of the conditions set for the 
+loop.</p><p>This is done using the <code>break</code> keyword.</p><p>This is useful in many cases. You might want to check for the value of a variable, for example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> someVariable <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Having this option to break out of a loop is particularly interesting for <code>while</code> loops (and <code>do while</code>
+ too), because we can create seemingly infinite loops that end when a 
+&nbsp;condition occurs. You define this inside the loop block:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* do something */</span>
+
+  i<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>It's rather common to have this kind of loop in C.</p><h2 id="arrays">Arrays</h2><p>An array is a variable that stores multiple values.</p><p>Every value in the array, in C, must have the <strong>same type</strong>. This means you will have arrays of <code>int</code> values, arrays of <code>double</code> values, and more.</p><p>You can define an array of <code>int</code> values like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> prices<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>You must always specify the size
+ of the array. C does not provide dynamic arrays out of the box (you 
+have to use a data structure like a linked list for that).</p><p>You can use a constant to define the size:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">const</span> <span class="token keyword">int</span> SIZE <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> prices<span class="token punctuation">[</span>SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>You can initialize an array at definition time, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> prices<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>But you can also assign a value after the definition, in this way:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> prices<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+prices<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+prices<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+prices<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+prices<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Or, more practical, using a loop:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> prices<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>And you can reference an item in
+ the array by using square brackets after the array variable name, 
+adding an integer to determine the index value. Like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c">prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* array item value: 1 */</span>
+prices<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* array item value: 2 */</span>
+</code></pre><!--kg-card-end: code--><p>Array indexes start from 0, so an array with 5 items, like the <code>prices</code> array above, will have items ranging from <code>prices[0]</code> to <code>prices[4]</code>.</p><p>The
+ interesting thing about C arrays is that all elements of an array are 
+stored sequentially, one right after another. Not something that 
+normally happens with higher-level programming languages.</p><p>Another interesting thing is this: the variable name of the array, <code>prices</code> in the above example, is a <strong>pointer</strong> to the first element of the array. As such it can be used like a normal pointer.</p><p>More on pointers soon.</p><h2 id="strings">Strings</h2><p>In C, strings are one special kind of array: a string is an array of <code>char</code> values:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>I introduced the <code>char</code> type when I introduced types, but in short it is commonly used to store letters of the ASCII chart.</p><p>A string can be initialized like you initialize a normal array:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token string">"F"</span><span class="token punctuation">,</span> <span class="token string">"l"</span><span class="token punctuation">,</span> <span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"v"</span><span class="token punctuation">,</span> <span class="token string">"i"</span><span class="token punctuation">,</span> <span class="token string">"o"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Or more conveniently with a string literal (also called string constant), a sequence of characters enclosed in double quotes:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Flavio"</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>You can print a string via <code>printf()</code> using <code>%s</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Do you notice how "Flavio" is 6 
+chars long, but I defined an array of length 7? Why? This is because the
+ last character in a string must be a &nbsp;<code>0</code> value, the string terminator, and we must make space for it.</p><p>This is important to keep in mind especially when manipulating strings.</p><p>Speaking of manipulating strings, there's one important standard library that is provided by C: <code>string.h</code>.</p><p>This
+ library is essential because it abstracts many of the low level details
+ of working with strings, and provides us with a set of useful 
+functions.</p><p>You can load the library in your program by adding on top:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string.h&gt;</span></span>
+</code></pre><!--kg-card-end: code--><p>And once you do that, you have access to:</p><ul><li><code>strcpy()</code> to copy a string over another string</li><li><code>strcat()</code> to append a string to another string</li><li><code>strcmp()</code> to compare two strings for equality</li><li><code>strncmp()</code> to compare the first <code>n</code> characters of two strings</li><li><code>strlen()</code> to calculate the length of a string</li></ul><p>and many, many more.</p><h2 id="pointers">Pointers</h2><p>Pointers
+ are one of the most confusing/challenging parts of C, in my opinion. 
+Especially if you are new to programming, but also if you come from a 
+higher level programming language like Python or JavaScript.</p><p>In this section I want to introduce them in the simplest yet not-dumbed-down way possible.</p><p>A pointer is the address of a block of memory that contains a variable.</p><p>When you declare an integer number like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We can use the <code>&amp;</code> operator to get the value of the address in memory of a variable:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%p"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 0x7ffeef7dcb9c */</span>
+</code></pre><!--kg-card-end: code--><p>I used the <code>%p</code> format specified in <code>printf()</code> to print the address value.</p><p>We can assign the address to a variable:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token operator">*</span>address <span class="token operator">=</span> <span class="token operator">&amp;</span>age<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Using <code>int *address</code> in the declaration, we are not declaring an integer variable, but rather a <strong>pointer to an integer</strong>.</p><p>We can use the pointer operator <code>*</code> to get the value of the variable an address is pointing to:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>address <span class="token operator">=</span> <span class="token operator">&amp;</span>age<span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token operator">*</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 37 */</span>
+</code></pre><!--kg-card-end: code--><p>This time we are using the 
+pointer operator again, but since it's not a declaration this time it 
+means "the value of the variable this pointer points to".</p><p>In this example we declare an <code>age</code> variable, and we use a pointer to initialize the value:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token operator">*</span>address <span class="token operator">=</span> <span class="token operator">&amp;</span>age<span class="token punctuation">;</span>
+<span class="token operator">*</span>address <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token operator">*</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>When working with C, you'll find
+ that a lot of things are built on top of this simple concept. So make 
+sure you familiarize with it a bit by running the above examples on your
+ own.</p><p>Pointers are a great opportunity because they force us to think about memory addresses and how data is organized.</p><p>Arrays are one example. When you declare an array:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> prices<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>The <code>prices</code> variable is actually a pointer to the first item of the array. You can get the value of the first item using this <code>printf()</code> function in this case:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token operator">*</span>prices<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 5 */</span>
+</code></pre><!--kg-card-end: code--><p>The cool thing is that we can get the second item by adding 1 to the <code>prices</code> pointer:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">(</span>prices <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* 4 */</span>
+</code></pre><!--kg-card-end: code--><p>And so on for all the other values.</p><p>We can also do many nice string manipulation operations, since strings are arrays under the hood.</p><p>We
+ also have many more applications, including passing the reference of an
+ object or a function around to avoid consuming more resources to copy 
+it.</p><h2 id="functions">Functions</h2><p>Functions are the way we can structure our code into subroutines that we can:</p><ol><li>give a name to</li><li>call when we need them</li></ol><p>Starting from your very first program, a "Hello, World!", you immediately make use of C functions:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Hello, World!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>The <code>main()</code> function is a very important function, as it's the entry point for a C program.</p><p>Here's another function:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Functions have 4 important aspects:</p><ol><li>they have a name, so we can invoke ("call") them later</li><li>they specify a return value</li><li>they can have arguments</li><li>they have a body, wrapped in curly braces</li></ol><p>The function body is the set of instructions that are executed any time we invoke a function.</p><p>If the function has no return value, you can use the keyword <code>void</code> before the function name. Otherwise you specify the function return value type (<code>int</code> for an integer, <code>float</code> for a floating point value, <code>const char *</code> for a string, etc).</p><p>You cannot return more than one value from a function.</p><p>A function can have arguments. They are optional. If it does not have them, inside the parentheses we insert <code>void</code>, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>In this case, when we invoke the function we'll call it with nothing in the parentheses:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>If we have one parameter, we specify the type and the name of the parameter, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>When we invoke the function, we'll pass that parameter in the parentheses, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We can have multiple parameters, and if so we separate them using a comma, both in the declaration and in the invocation:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">int</span> value1<span class="token punctuation">,</span> <span class="token keyword">int</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Parameters are passed by <strong>copy</strong>. This means that if you modify <code>value1</code>, its value is modified locally. The value outside of the function, where it was passed in the invocation, does not change.</p><p>If you pass a <strong>pointer</strong> as a parameter, you can modify that variable value because you can now access it directly using its memory address.</p><p>You can't define a default value for a parameter. C++ can do that (and so Arduino Language programs can), but C can't.</p><p>Make sure you define the function before calling it, or the compiler will raise a warning and an error:</p><!--kg-card-begin: code--><pre><code>➜  ~ gcc hello.c -o hello; ./hello
+hello.c:13:3: warning: implicit declaration of
+      function 'doSomething' is invalid in C99
+      [-Wimplicit-function-declaration]
+  doSomething(3, 4);
+  ^
+hello.c:17:6: error: conflicting types for
+      'doSomething'
+void doSomething(int value1, char value2) {
+     ^
+hello.c:13:3: note: previous implicit declaration
+      is here
+  doSomething(3, 4);
+  ^
+1 warning and 1 error generated.
+</code></pre><!--kg-card-end: code--><p>The warning you get regards the ordering, which I already mentioned.</p><p>The
+ error is about another thing, related. Since C does not "see" the 
+function declaration before the invocation, it must make assumptions. 
+And it assumes the function to return <code>int</code>. The function however returns <code>void</code>, hence the error.</p><p>If you change the function definition to:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">int</span> value1<span class="token punctuation">,</span> <span class="token keyword">int</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> value1<span class="token punctuation">,</span> value2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>you'd just get the warning, and not the error:</p><!--kg-card-begin: code--><pre><code>➜  ~ gcc hello.c -o hello; ./hello
+hello.c:14:3: warning: implicit declaration of
+      function 'doSomething' is invalid in C99
+      [-Wimplicit-function-declaration]
+  doSomething(3, 4);
+  ^
+1 warning generated.
+</code></pre><!--kg-card-end: code--><p>In any case, make sure you 
+declare the function before using it. Either move the function up, or 
+add the function prototype in a header file.</p><p>Inside a function, you can declare variables.</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> doubleValue <span class="token operator">=</span> value <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>A variable is created at the 
+point of invocation of the function and is destroyed when the function 
+ends. It's not visible from the outside.</p><p>Inside a function, you can call the function itself. This is called <strong>recursion</strong> and it's something that offers peculiar opportunities.</p><h2 id="input-and-output">Input and output</h2><p>C is a small language, and the "core" of C does not include any Input/Output (I/O) functionality.</p><p>This is not something unique to C, of course. It's common for the language core to be agnostic of I/O.</p><p>In the case of C, Input/Output is provided to us by the C Standard Library via a set of functions defined in the <code>stdio.h</code> header file.</p><p>You can import this library using:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+</code></pre><!--kg-card-end: code--><p>on top of your C file.</p><p>This library provides us with, among many other functions:</p><ul><li><code>printf()</code></li><li><code>scanf()</code></li><li><code>sscanf()</code></li><li><code>fgets()</code></li><li><code>fprintf()</code></li></ul><p>Before describing what those functions do, I want to take a minute to talk about <strong>I/O streams</strong>.</p><p>We have 3 kinds of I/O streams in C:</p><ul><li><code>stdin</code> (standard input)</li><li><code>stdout</code> (standard output)</li><li><code>stderr</code> (standard error)</li></ul><p>With
+ I/O functions we always work with streams. A stream is a high level 
+interface that can represent a device or a file. From the C standpoint, 
+we don't have any difference in reading from a file or reading from the 
+command line: it's an I/O stream in any case.</p><p>That's one thing to keep in mind.</p><p>Some functions are designed to work with a specific stream, like <code>printf()</code>, which we use to print characters to <code>stdout</code>. Using its more general counterpart <code>fprintf()</code>, we can specify which stream to write to.</p><p>Since I started talking about <code>printf()</code>, let's introduce it now.</p><p><code>printf()</code> is one of the first functions you'll use when learning C programming.</p><p>In its simplest usage form, you pass it a string literal:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"hey!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>and the program will print the content of the string to the screen.</p><p>You
+ can print the value of a variable. But it's a bit tricky because you 
+need to add a special character, a placeholder, which changes depending 
+on the type of the variable. For example we use <code>%d</code> for a signed decimal integer digit:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"My age is %d"</span><span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We can print more than one variable by using commas:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age_yesterday <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> age_today <span class="token operator">=</span> <span class="token number">36</span><span class="token punctuation">;</span>
+
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Yesterday my age was %d and today is %d"</span><span class="token punctuation">,</span> age_yesterday<span class="token punctuation">,</span> age_today<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>There are other format specifiers like <code>%d</code>:</p><ul><li><code>%c</code> for a char</li><li><code>%s</code> for a char</li><li><code>%f</code> for floating point numbers</li><li><code>%p</code> for pointers</li></ul><p>and many more.</p><p>We can use escape characters in <code>printf()</code>, like <code>\n</code> which we can use to make the output create a new line.</p><h3 id="scanf-"><code>scanf()</code></h3><p><code>printf()</code> is used as an output function. I want to introduce an input function now, so we can say we can do all the I/O thing: <code>scanf()</code>.</p><p>This function is used to get a value from the user running the program, from the command line.</p><p>We must first define a variable that will hold the value we get from the input:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Then we call <code>scanf()</code> with 2 arguments: the format (type) of the variable, and the address of the variable:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>If we want to get a string as input, remember that a string name is a pointer to the first character, so you don't need the <code>&amp;</code> character before it:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Here's a little program that uses both <code>printf()</code> and <code>scanf()</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> name<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Enter your name: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"you entered %s"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h2 id="variable-scope">Variable scope</h2><p>When you define a variable in a C program, depending on where you declare it, it will have a different <strong>scope</strong>.</p><p>This means that it will be available in some places, but not in others.</p><p>The position determines 2 types of variables:</p><ul><li><strong>global variables</strong></li><li><strong>local variables</strong></li></ul><p>This is the difference: a variable declared inside a function is a local variable, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Local variables are only 
+accessible from within the function, and when the function ends they 
+stop their existence. They are cleared from the memory (with some 
+exceptions).</p><p>A variable defined outside a function is a global variable, like in this example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">37</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Global variables are accessible 
+from any function of the program, and they are available for the whole 
+execution of the program, until it ends.</p><p>I mentioned that local variables are not available any more after the function ends.</p><p>The reason is that local variables are declared on the <strong>stack</strong>, by default, unless you explicitly allocate them on the heap using pointers. But then you have to manage the memory yourself.</p><h2 id="static-variables">Static variables</h2><p>Inside a function, you can initialize a <strong>static variable</strong> using the <code>static</code> keyword.</p><p>I said "inside a function" because global variables are static by default, so there's no need to add the keyword.</p><p>What's
+ a static variable? A static variable is initialized to 0 if no initial 
+value is specified, and it retains the value across function calls.</p><p>Consider this function:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  age<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>If we call <code>incrementAge()</code> once, we'll get <code>1</code> as the return value. If we call it more than once, we'll always get 1 back, because <code>age</code> is a local variable and it's re-initialized to <code>0</code> on every single function call.</p><p>If we change the function to:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  age<span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Now every time we call this function, we'll get an incremented value:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>will give us</p><!--kg-card-begin: code--><pre><code>1
+2
+3
+</code></pre><!--kg-card-end: code--><p>We can also omit initializing <code>age</code> to 0 in <code>static int age = 0;</code>, and just write <code>static int age;</code> because static variables are automatically set to 0 when created.</p><p>We can also have static arrays. In this case, each single item in the array is initialized to 0:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">incrementAge</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token keyword">int</span> ages<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  ages<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> ages<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h2 id="global-variables">Global variables</h2><p>In this section I want to talk more about the difference between <strong>global and local variables</strong>.</p><p>A <strong>local variable</strong> is defined inside a function, and it's only available inside that function.</p><p>Like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">char</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  j <span class="token operator">+=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//10</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p><code>j</code> is not available anywhere outside the <code>main</code> function.</p><p>A <strong>global variable</strong> is defined outside of any function, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">char</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  i <span class="token operator">+=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//10</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>A global variable can be 
+accessed by any function in the program. &nbsp;Access is not limited to 
+reading the value: the variable can be updated by any function.</p><p>Due to this, global variables are one way we have of sharing the same data between functions.</p><p>The main difference with local variables is that the memory allocated for variables is freed once the function ends.</p><p>Global variables are only freed when the program ends.</p><h2 id="type-definitions">Type definitions</h2><p>The <code>typedef</code> keyword in C allows you to defined new types.</p><p>Starting from the built-in C types, we can create our own types, using this syntax:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> existingtype NEWTYPE
+</code></pre><!--kg-card-end: code--><p>The new type we create is usually, by convention, uppercase.</p><p>This it to distinguish it more easily, and immediately recognize it as type.</p><p>For example we can define a new <code>NUMBER</code> type that is an <code>int</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> <span class="token keyword">int</span> NUMBER
+</code></pre><!--kg-card-end: code--><p>and once you do so, you can define new <code>NUMBER</code> variables:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c">NUMBER one <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Now you might ask: why? Why not just use the built-in type <code>int</code> instead?</p><p>Well, <code>typedef</code> gets really useful when paired with two things: enumerated types and structures.</p><h2 id="enumerated-types">Enumerated types</h2><p>Using the <code>typedef</code> and <code>enum</code> keywords we can define a type that can have either one value or another.</p><p>It's one of the most important uses of the <code>typedef</code> keyword.</p><p>This is the syntax of an enumerated type:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...values</span>
+<span class="token punctuation">}</span> TYPENAME<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>The enumerated type we create is usually, by convention, uppercase.</p><p>Here is a simple example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
+  true<span class="token punctuation">,</span>
+  false
+<span class="token punctuation">}</span> BOOLEAN<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>C comes with a <code>bool</code> type, so this example is not really practical, but you get the idea.</p><p>Another example is to define weekdays:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
+  monday<span class="token punctuation">,</span>  
+  tuesday<span class="token punctuation">,</span>
+  wednesday<span class="token punctuation">,</span>
+  thursday<span class="token punctuation">,</span>
+  friday<span class="token punctuation">,</span>
+  saturday<span class="token punctuation">,</span>
+  sunday
+<span class="token punctuation">}</span> WEEKDAY<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Here's a simple program that uses this enumerated type:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">typedef</span> <span class="token keyword">enum</span> <span class="token punctuation">{</span>
+  monday<span class="token punctuation">,</span>  
+  tuesday<span class="token punctuation">,</span>
+  wednesday<span class="token punctuation">,</span>
+  thursday<span class="token punctuation">,</span>
+  friday<span class="token punctuation">,</span>
+  saturday<span class="token punctuation">,</span>
+  sunday
+<span class="token punctuation">}</span> WEEKDAY<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  WEEKDAY day <span class="token operator">=</span> monday<span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>day <span class="token operator">==</span> monday<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"It's monday!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"It's not monday"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Every item in the enum definition is paired to an integer, internally. So in this example <code>monday</code> is 0, <code>tuesday</code> is 1 and so on.</p><p>This means the conditional could have been <code>if (day == 0)</code> instead of <code>if (day == monday)</code>, but it's way simpler for us humans to reason with names rather than numbers, so it's a very convenient syntax.</p><h2 id="structures">Structures</h2><p>Using the <code>struct</code> keyword we can create complex data structures using basic C types.</p><p>A
+ structure is a collection of values of different types. Arrays in C are
+ limited to a type, so structures can prove to be very interesting in a 
+lot of use cases.</p><p>This is the syntax of a structure:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token operator">&lt;</span>structname<span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...variables</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>You can declare variables that 
+have as type that structure by adding them after the closing curly 
+bracket, before the semicolon, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> flavio<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Or multiple ones, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> flavio<span class="token punctuation">,</span> people<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>In this case I declare a single <code>person</code> variable named <code>flavio</code>, and an array of 20 <code>person</code> named <code>people</code>.</p><p>We can also declare variables later on, using this syntax:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">person</span> flavio<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We can initialize a structure at declaration time:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">person</span> flavio <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token string">"Flavio"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>and once we have a structure defined, we can access the values in it using a dot:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">person</span> flavio <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token string">"Flavio"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s, age %u"</span><span class="token punctuation">,</span> flavio<span class="token punctuation">.</span>name<span class="token punctuation">,</span> flavio<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>We can also change the values using the dot syntax:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">struct</span> <span class="token class-name">person</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> <span class="token class-name">person</span> flavio <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token string">"Flavio"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+flavio<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">38</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Structures are very useful 
+because we can pass them around as function parameters, or return 
+values, embedding various variables within them. Each variable has a 
+label.</p><p>It's important to note that structures are <strong>passed by copy</strong>, unless of course you pass a pointer to a struct, in which case it's passed by reference.</p><p>Using <code>typedef</code> we can simplify the code when working with structures.</p><p>Let's look at an example:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">char</span> <span class="token operator">*</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> PERSON<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>The structure we create using <code>typedef</code> is usually, by convention, uppercase.</p><p>Now we can declare new <code>PERSON</code> variables like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c">PERSON flavio<span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>and we can initialize them at declaration in this way:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c">PERSON flavio <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">37</span><span class="token punctuation">,</span> <span class="token string">"Flavio"</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><h2 id="command-line-parameters">Command line parameters</h2><p>In your C programs, you might need to accept parameters from the command line when the command launches.</p><p>For simple needs, all you need to do to do so is change the <code>main()</code> function signature from</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+</code></pre><!--kg-card-end: code--><p>to</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> main <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre><!--kg-card-end: code--><p><code>argc</code> is an integer number that contains the number of parameters that were provided in the command line.</p><p><code>argv</code> is an array of strings.</p><p>When the program starts, we are provided the arguments in those 2 parameters.</p><p>Note that there's always at least one item in the <code>argv</code> array: the name of the program</p><p>Let's take the example of the C compiler we use to run our programs, like this:</p><!--kg-card-begin: code--><pre class=" language-sh"><code class=" language-sh">gcc hello.c -o hello
+</code></pre><!--kg-card-end: code--><p>If this was our program, we'd have <code>argc</code> being 4 and <code>argv</code> being an array containing</p><ul><li><code>gcc</code></li><li><code>hello.c</code></li><li><code>-o</code></li><li><code>hello</code></li></ul><p>Let's write a program that prints the arguments it receives:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> main <span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> argc<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>If the name of our program is <code>hello</code> and we run it like this: <code>./hello</code>, we'd get this as output:</p><!--kg-card-begin: code--><pre><code>./hello
+</code></pre><!--kg-card-end: code--><p>If we pass some random parameters, like this: <code>./hello a b c</code> we'd get this output to the terminal:</p><!--kg-card-begin: code--><pre><code>./hello
+a
+b
+c
+</code></pre><!--kg-card-end: code--><p>This system works great for simple needs. For more complex needs, there are commonly used packages like <strong>getopt</strong>.</p><h2 id="headers-files">Headers files</h2><p>Simple programs can be put in a single file. But when your program grows larger it's impossible to keep it all in just one file.</p><p>You can move parts of a program to a separate file. Then you create a <strong>header file</strong>.</p><p>A header file looks like a normal C file, except it ends with <code>.h</code> instead of <code>.c</code>. Instead of the implementations of your functions and the other parts of a program, it holds the <strong>declarations</strong>.</p><p>You already used header files when you first used the <code>printf()</code> function, or other I/O function, and you had to type:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+</code></pre><!--kg-card-end: code--><p>to use it.</p><p><code>#include</code> is a preprocessor directive.</p><p>The preprocessor goes and looks up the <code>stdio.h</code>
+ file in the standard library because you used brackets around it. To 
+include your own header files, you'll use quotes, like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"myfile.h"</span></span>
+</code></pre><!--kg-card-end: code--><p>The above will look up <code>myfile.h</code> in the current folder.</p><p>You can also use a folder structure for libraries:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"myfolder/myfile.h"</span></span>
+</code></pre><!--kg-card-end: code--><p>Let's look at an example. This program calculates the years since a given year:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">int</span> <span class="token function">calculateAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token keyword">int</span> CURRENT_YEAR <span class="token operator">=</span> <span class="token number">2020</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> CURRENT_YEAR <span class="token operator">-</span> year<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token function">calculateAge</span><span class="token punctuation">(</span><span class="token number">1983</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Suppose I want to move the <code>calculateAge</code> function to a separate file.</p><p>I create a <code>calculate_age.c</code> file:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">calculateAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token keyword">int</span> CURRENT_YEAR <span class="token operator">=</span> <span class="token number">2020</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> CURRENT_YEAR <span class="token operator">-</span> year<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>And a <code>calculate_age.h</code> file where I put the <em>function prototype</em>, which is the same as the function in the <code>.c</code> file, except the body:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token keyword">int</span> <span class="token function">calculateAge</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><!--kg-card-end: code--><p>Now in the main <code>.c</code> file we can go and remove the <code>calculateAge()</code> function definition, and we can import <code>calculate_age.h</code>, which will make the <code>calculateAge()</code> function available:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"calculate_age.h"</span></span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token function">calculateAge</span><span class="token punctuation">(</span><span class="token number">1983</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>Don't forget that to compile a program composed by multiple files, you need to list them all in the command line, like this:</p><!--kg-card-begin: code--><pre class=" language-sh"><code class=" language-sh">gcc -o main main.c calculate_age.c
+</code></pre><!--kg-card-end: code--><p>And with more complex setups, a Makefile is necessary to tell the compiler how to compile the program.</p><h2 id="the-preprocessor">The preprocessor</h2><p>The
+ preprocessor is a tool that helps us a lot when programming with C. It 
+is part of the C Standard, just like the language, the compiler, and the
+ standard library.</p><p>It parses our program and makes sure that the compiler gets all the things it needs before going on with the process.</p><p>What does it do, in practice?</p><p>For example, it looks up all the header files you include with the <code>#include</code> directive.</p><p>It also looks at every constant you defined using <code>#define</code> and substitutes it with its actual value.</p><p>That's just the start. I mentioned those 2 operations because they are the most common ones. The preprocessor can do a lot more.</p><p>Did you notice <code>#include</code> and <code>#define</code> have a <code>#</code> at the beginning? That's common to all the preprocessor directives. If a line starts with <code>#</code>, that's taken care of by the preprocessor.</p><h3 id="conditionals-1">Conditionals</h3><p>One
+ of the things we can do is to use conditionals to change how our 
+program will be compiled, depending on the value of an expression.</p><p>For example we can check if the <code>DEBUG</code> constant is 0:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> DEBUG <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">if</span> DEBUG == 0</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"I am NOT debugging\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"I am debugging\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><h3 id="symbolic-constants">Symbolic constants</h3><p>We can define a <strong>symbolic constant</strong>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">define</span> VALUE 1</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> PI 3.14</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> NAME "Flavio"</span>
+</code></pre><!--kg-card-end: code--><p>When we use NAME or PI or VALUE in our program, the preprocessor replaces its name with the value before executing the program.</p><p>Symbolic constants are very useful because we can give names to values without creating variables at compilation time.</p><h3 id="macros">Macros</h3><p>With <code>#define</code> we can also define a <strong>macro</strong>.
+ The difference between a macro and a symbolic constant is that a macro 
+can accept an argument and typically contains code, while a symbolic 
+constant is a value:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">define</span> POWER(x) ((x) * (x))</span>
+</code></pre><!--kg-card-end: code--><p>Notice the parentheses around 
+the arguments: this is a good practice to avoid issues when the macro is
+ replaced in the precompilation process.</p><p>Then we can use it in our code like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%u\n"</span><span class="token punctuation">,</span> <span class="token function">POWER</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//16</span>
+</code></pre><!--kg-card-end: code--><p>The big difference with 
+functions is that macros do not specify the type of their arguments or 
+return values, which might be handy in some cases.</p><p>Macros, however, are limited to one line definitions.</p><h3 id="if-defined">If defined</h3><p>We can check if a symbolic constant or a macro is defined using <code>#ifdef</code>:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property">#<span class="token directive keyword">define</span> VALUE 1</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> VALUE</span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Value is defined\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Value is not defined\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token punctuation">}</span>
+</code></pre><!--kg-card-end: code--><p>We also have <code>#ifndev</code> to check for the opposite (macro not defined).</p><p>We can also use <code>#if defined</code> and <code>#if !defined</code> to do the same task.</p><p>It's common to wrap some block of code into a block like this:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">if</span> 0</span>
+
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+</code></pre><!--kg-card-end: code--><p>to temporarily prevent it from running, or to use a DEBUG symbolic constant:</p><!--kg-card-begin: code--><pre class=" language-c"><code class=" language-c"><span class="token macro property">#<span class="token directive keyword">define</span> DEBUG 0</span>
+
+<span class="token macro property">#<span class="token directive keyword">if</span> DEBUG</span>
+  <span class="token comment">//code only sent to the compiler</span>
+  <span class="token comment">//if DEBUG is not 0</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+</code></pre><!--kg-card-end: code--><h3 id="predefined-symbolic-constants-you-can-use">Predefined symbolic constants you can use</h3><p>The
+ preprocessor also defines a number of symbolic constants you can use, 
+identified by the 2 underscores before and after the name, including:</p><ul><li><code>__LINE__</code> translates to the current line in the source code file</li><li><code>__FILE__</code> translates to the name of the file</li><li><code>__DATE__</code> translates to the compilation date, in the <code>Mmm gg aaaa</code> format</li><li><code>__TIME__</code> translates to the compilation time, in the <code>hh:mm:ss</code> format</li></ul><h2 id="conclusion">Conclusion</h2><p>Thanks a lot for reading this handbook!</p><p>I hope it will inspire you to know more about C.</p><p>For more tutorials, check out my blog <a href="https://flaviocopes.com/">flaviocopes.com</a>.</p><p>Send any feedback, errata, or opinions at <a href="mailto:hey@flaviocopes.com">hey@flaviocopes.com</a></p><p>And remember: <a href="https://flaviocopes.com/page/c-handbook/">You can get a PDF and ePub version of this C Beginner's Handbook</a></p><p>You can reach me on Twitter <a href="https://twitter.com/flaviocopes">@flaviocopes</a>.</p>
+                </div>
+                <hr>
+                <p class="social-row">
+
+    If this article was helpful,
+    <a class="cta-button" onclick="window.open(`https://twitter.com/intent/tweet?text=The%20C%20Beginner's%20Handbook%3A%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours%0A%0Ahttps%3A%2F%2Fwww.freecodecamp.org%2Fnews%2Fthe-c-beginners-handbook%2F`, 'share-twitter', 'width=550,height=235' ); return false;">
+        tweet it.</a>
+</p>                
+<div class="learn-cta-row">
+    <p>
+        Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as
+        developers. <a class="cta-button" href="https://www.freecodecamp.org/learn">Get started</a>
+    </p>
+</div>            </section>
+
+
+
+        </article>
+    </div>
+</main>
+
+
+
+
+        <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-desc-col">
+                <p>freeCodeCamp is a donor-supported tax-exempt 501(c)(3) nonprofit organization (United States Federal
+                    Tax Identification Number: 82-0779546)
+                </p>
+                <p>
+                    Our mission: to help people learn to code for free. We accomplish this by creating thousands of
+                    videos, articles, and interactive coding lessons - all freely available to the public. We also have
+                    thousands of freeCodeCamp study groups around the world.
+                </p>
+                <p>
+                    Donations to freeCodeCamp go toward our education initiatives, and help pay for servers, services,
+                    and staff.
+                </p>
+                <p class="footer-donation">
+                    You can&nbsp;<a href="https://freecodecamp.org/donate" class="inline" rel="noopener noreferrer" target="_blank">make a tax-deductible donation here</a>.
+                </p>
+            </div>
+            <div class="trending-guides">
+                <div class="col-header">Trending Guides</div>
+                <div class="trending-guides-row">
+                    <div class="footer-col footer-col-1">
+                        <a href="https://www.freecodecamp.org/news/javascript-closure-tutorial-with-js-closure-example-code/">JavaScript
+                            Closure</a>
+                        <a href="https://www.freecodecamp.org/news/css-tutorial-drop-shadow/">CSS Box Shadow</a>
+                        <a href="https://www.freecodecamp.org/news/python-list-append-how-to-add-an-element-to-an-array-explained-with-examples/">Python
+                            List Append</a>
+                        <a href="https://www.freecodecamp.org/news/javascript-array-sort-tutorial-how-to-use-js-sort-methods-with-code-examples/">JavaScript
+                            Array Sort</a>
+                        <a href="https://www.freecodecamp.org/news/symlink-tutorial-in-linux-how-to-create-and-remove-a-symbolic-link/">Symlink
+                            in Linux</a>
+                        <a href="https://www.freecodecamp.org/news/grep-command-tutorial-how-to-search-for-a-file-in-linux-and-unix/">Linux
+                            Grep Command</a>
+                        <a href="https://www.freecodecamp.org/news/what-is-dns/">What is DNS?</a>
+                        <a href="https://www.freecodecamp.org/news/primary-key-sql-tutorial-how-to-define-a-primary-key-in-a-database/">Primary
+                            Key SQL</a>
+                        <a href="https://www.freecodecamp.org/news/sql-update-statement-example-queries-for-updating-table-values/">SQL
+                            Update Statement</a>
+                        <a href="https://www.freecodecamp.org/news/how-to-screenshot-on-windows/">Screenshot on PC</a>
+                    </div>
+                    <div class="footer-col footer-col-2">
+                        <a href="https://www.freecodecamp.org/news/javascript-es6-promises-for-beginners-resolve-reject-and-chaining-explained/">JavaScript
+                            Promise</a>
+                        <a href="https://www.freecodecamp.org/news/what-is-github-what-is-git-and-how-to-use-these-developer-tools/">What
+                            is GitHub?</a>
+                        <a href="https://www.freecodecamp.org/news/the-python-sort-list-array-method-ascending-and-descending-explained-with-examples/">Python
+                            Sort List</a>
+                        <a href="https://www.freecodecamp.org/news/json-comment-example-how-to-comment-in-json-files/">Comments
+                            in JSON</a>
+                        <a href="https://www.freecodecamp.org/news/what-is-kanban-the-agile-methodology-defined-and-how-to-use-it-for-your-software-development-team-2/">What
+                            is Kanban?</a>
+                        <a href="https://www.freecodecamp.org/news/python-write-to-file-open-read-append-and-other-file-handling-functions-explained/">Python
+                            Write to File</a>
+                        <a href="https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/">CSS
+                            Media Queries</a>
+                        <a href="https://www.freecodecamp.org/news/html-entities-symbols-special-character-codes-list/">HTML
+                            Entities</a>
+                        <a href="https://www.freecodecamp.org/news/excel-vba-tutorial/">Excel VBA</a>
+                        <a href="https://www.freecodecamp.org/news/vlookup-in-excel/">LOOKUP in Excel</a>
+                    </div>
+                    <div class="footer-col footer-col-3">
+                        <div class="footer-left">
+                            <a href="https://www.freecodecamp.org/news/what-is-a-proxy-server-in-english-please/">What
+                                is a Proxy Server?</a>
+                            <a href="https://www.freecodecamp.org/news/the-cat-command-in-linux-concatenation-explained-with-bash-examples/">Cat
+                                Command in Linux</a>
+                            <a href="https://www.freecodecamp.org/news/how-to-add-an-image-url-to-your-div/">CSS
+                                Background Image</a>
+                            <a href="https://www.freecodecamp.org/news/html-background-color-tutorial-how-to-change-a-div-background-color-explained-with-code-examples/">HTML
+                                Background Color</a>
+                            <a href="https://www.freecodecamp.org/news/comments-in-css/">CSS Comment Example</a>
+                        </div>
+
+                        <div class="footer-right">
+                            <a href="https://www.freecodecamp.org/news/arrow-function-javascript-tutorial-how-to-declare-a-js-function-with-the-new-es6-syntax/">Arrow
+                                Function JavaScript</a>
+                            <a href="https://www.freecodecamp.org/news/how-to-remove-duplicates-in-excel-delete-duplicate-rows-with-a-few-clicks/">Remove
+                                Duplicates in Excel</a>
+                            <a href="https://www.freecodecamp.org/news/what-is-dllhost-exe-and-com-surrogate-in-windows-task-manager-solved/">dllhost.exe
+                                COM Surrogate</a>
+                            <a href="https://www.freecodecamp.org/news/boolean-algebra/">Boolean Algebra Truth Table</a>
+                            <a href="https://www.freecodecamp.org/news/can-you-facetime-on-android-no-but-here-are-some-alternative-video-conferencing-apps/">Video
+                                Chat for Android</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-buttom">
+            <div class="col-header">Our Nonprofit</div>
+            <div class="footer-divder"></div>
+            <div class="our-nonprofit">
+                <a href="https://www.freecodecamp.org/news/about/">About</a>
+                <a href="https://www.linkedin.com/school/free-code-camp/people/" rel="noopener noreferrer" target="_blank">Alumni Network</a>
+                <a href="https://github.com/freeCodeCamp/">Open Source</a>
+                <a href="https://www.freecodecamp.org/shop/" rel="noopener noreferrer" target="_blank">Shop</a>
+                <a href="https://www.freecodecamp.org/news/support/">Support</a>
+                <a href="https://www.freecodecamp.org/news/sponsors/">Sponsors</a>
+                <a href="https://www.freecodecamp.org/news/academic-honesty-policy/">Academic Honesty</a>
+                <a href="https://www.freecodecamp.org/news/code-of-conduct/">Code of Conduct</a>
+                <a href="https://www.freecodecamp.org/news/privacy-policy/">Privacy Policy</a>
+                <a href="https://www.freecodecamp.org/news/terms-of-service/">Terms of Service</a>
+                <a href="https://www.freecodecamp.org/news/copyright-policy/">Copyright Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+
+    <script src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/jquery-3.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+        </script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/jquery.js"></script>
+
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-unescaped-markup.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-markup-templating.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-bash.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-c.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-clojure.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-cpp.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-csharp.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-css.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-docker.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-elixir.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-erlang.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-git.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-go.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-graphql.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-haskell.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-java.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-javascript.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-json.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-jsx.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-kotlin.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-lua.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-markup.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-php.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-python.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-r.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-ruby.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-rust.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-scala.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-sql.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-swift.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-typescript.js"></script>
+    <script type="text/javascript" src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/prism-yaml.js"></script>
+
+    <script>
+    $(document).ready(function () {
+        // Start fitVids
+        var $postContent = $(".post-full-content");
+        $postContent.fitVids();
+        // End fitVids
+    });
+</script>
+
+
+    <script src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/anMaWQ9VUEtNTU0NDY1MzEtMjA.js" async=""></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-55446531-20');
+</script>
+
+
+
+<div style="width: 0px; height: 0px; position: fixed; left: 0px; top: 0px; overflow: hidden;"><iframe src="The%20C%20Beginner's%20Handbook%20Learn%20C%20Programming%20Language%20basics%20in%20just%20a%20few%20hours_files/application-sha256-9bd45ee14eb09a415feefc6c52817066236c606f.html" name="runkit-application" style="padding: 0px; margin: 0px; border: 0px none; height: 100vh; width: 0px; background: transparent none repeat scroll 0% 0%;" frameborder="0"></iframe></div></body></html>

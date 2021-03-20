@@ -1,0 +1,135 @@
+zero = \z s.z
+[z]
+
+succ = \a z s.s a
+[A s a]
+
+[a]
+true = \a b.a
+
+[b]
+false = \a b.b
+
+[A a a]
+Omega = \a.a a
+
+f A2  x x
+1 1 0 1 1 0
+    A     A2
+    
+[A f A _ _ x x]
+Y1 = \f x.f (x x)
+
+[A Omega A _ _ Y1 f]
+Y = \f.Omega (Y1 f)
+
+[A A A add pa s b]
+add3 = \pa b add _.add pa (s b)
+
+ 1  2 b a  3 add  4 b add3 pa
+ 2  2 1 1  2   1  2 1    1  1
+ => direct if >0 then right else if <0 to left
+ 
+ 1  2 b a  1 add  1 b add3 pa
+         
+A(A1(b a) A2(A3(A4(add3 pa) b) add))
+[A A A b a A add _ _ _ _ A b _ _ _ _ _ _ _ add3 pa]
+add2 = \a b add pa.b a (add3 pa b add)
+[A A A a b A add _ _ _ _ A b _ _ _ _ _ _ _ add2 a]
+add1 = \add a b.a b (add2 a b add)
+add = Y add1
+
+[A A add b m pa]
+mult4 = \b m pa.add b (m pa)
+[A A A a zero A m _ _ _ _ mult4 b]
+mult3 = \b m a.a zero (mult4 b m)
+[A A a Y A _ _ _ _ mult3 b]
+mult2 = \a b _. Y (mult3 b) a
+[A A A a zero A b _ _ _ _ mult2 a]
+mult1 = \a b _.b zero (mult2 a b)
+[A A A b zero A b _ _ _ _ mult1 a]
+mult = \mult a b. a zero (mult1 a b)
+
+[A A A mult n fac pa]
+fac2 = \fac n pa.mult n (fac pa)
+[A A A n A A n _ _ s zero fac2 fac]
+fac1 = \fac n.n (s zero) (fac2 fac n)
+fac = Y fac1
+
+FILL:107
+empty:44
+approx 50%
+
+omega = \a.a a => arg1 to 1 and 2. => [A a a]
+main = omega omega
+
+Omega A a a
+A Omega Omega
+A Omega Omega
+
+[1,2] -> [1]
+zero = \z s.z
+[1, 2, 3] -> [[3,1]]
+succ = \a z s.s a
+s (s (s (s z)))
+
+State :: leftTape * nowChar * rightTape -> 
+      newState * leftTape * nowChar * rightTape
+
+A l n r = n (
+ r as ri:rs in B (1:l) ri rs
+)(
+ l as li:ls in C ls li (1:rs)
+)
+
+B l n r = n (
+ l as li:ls in A ls li (1:rs)
+)(
+ r as ri:rs in B (1:l) ri rs
+)
+
+C l n r = n (
+ l as li:ls in B ls li (1:rs)
+)(
+ r as ri:rs in HALT (1:l) ri rs
+)
+HALT l n r = (HALT, l, n, r)
+
+A [0...] 0 [0...] -> B (1:[0...]) 0 [0...] ->
+A [0...] 1 (1:[0...]) -> C [0...] 0 (1:1:[0...]) ->
+
+
+T = \a b.a
+
+F = \a b.b
+and = \a b.a b F
+or = \a b.a T b
+not = \a.a F T
+xor = \a b.a (b F T) b
+
+T,F,xor,and,not,a,b
+
+main = T xor F and not T
+and (xor T F) (not T)
+
+xor T F 	|xor
+T (F F T) F |T
+F F T 		|F
+T	
+
+10
+A:  1 -> 1rB
+	0 -> 1rE
+B:  0 -> 0rC
+	1 -> 1rD
+E:  0 -> 0rD
+	1 -> 1rC
+	
+C: * -> 1rH
+D: * -> 0rH
+h: stop
+
+S = S_a + S_tape
+
+
+

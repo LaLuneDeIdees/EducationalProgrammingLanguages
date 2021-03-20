@@ -1,0 +1,125 @@
+# put your python code here
+N = int(input())
+l = list(map(int,input().split()))
+N = len(l)
+# allS = sum(l)
+# S = allS
+# S1 = 0
+
+# Jmin = 0
+# summMin = 10**11
+
+Node = lambda p1,p2,a,b,pref:lambda N,L: N(p1,p2,a,b,pref)
+isNode = lambda a:a(lambda a,b,c,d,e,f:True,lambda a:False)
+Leaf = lambda a:lambda N,L:L(a)
+isLeaf = lambda a:a(lambda a,b,c,d,e,f:False,lambda a:True)
+I = lambda a:a
+
+def build(l,feq,fea,f):
+    l = sorted(l,key=feq)
+    l = list(map(Leaf,l))
+    while len(l) > 1:
+        for i in range(len(l)//2):
+            a,b = l[i],l[i+1]
+            p11,p12,pf1 = a(lambda p1,p2,a,b,c:(p1,p2,c),lambda a:(a,a,f(a)))
+            p21,p22,pf2 = b(lambda p1,p2,a,b,c:(p1,p2,c),lambda a:(a,a,f(a)))
+            if feq(p11)<feq(p21):
+                l[i] = Node(p11,p22,a,b,fea(pf1,pf2))
+            else:
+                l[i] = Node(p21,p12,b,a,fea(pf1,pf2))
+            del(l[i+1])
+    return l[0]
+
+def printTree(T,f):
+    return T(
+        lambda a,b,c,d,e:"N(" +
+            str(a)+', '+
+            str(b)+', '+
+            printTree(c,f)+', '+
+            printTree(d,f)+', '+
+            str(e) + ")",
+        lambda a:"L("+f(a)+')'
+    )
+
+def getMoreThan(T,x,feq,fea,f,Not):
+    return T(
+        lambda p1,p2,a,b,pref: 
+        pref if feq(x) <= feq(p1) else (
+            Not if feq(x) > feq(p2) else(
+                fea(getMoreThan(a,x,feq,fea,f,Not), getMoreThan(b,x,feq,fea,f,Not))
+            )
+        ),
+
+        lambda a:f(a) if feq(x) <= feq(a) else Not
+    )
+def getLessThan(T,x,feq,fea,f,Not):
+    return T(
+        lambda p1,p2,a,b,pref: 
+        pref if feq(x) >= feq(p2) else (
+            Not if feq(x) < feq(p1) else(
+                fea(getMoreThan(a,x,feq,fea,f,Not), getMoreThan(b,x,feq,fea,f,Not))
+            )
+        ),
+
+        lambda a:f(a) if feq(x) >= feq(a) else Not
+    )
+
+
+# hs = {}
+# l = list(enumerate(l,start=0))
+# for i,k in l:
+#     if k not in hs:
+#         hs[k] = [(i,k)]
+#     else:
+#         hs[k].append((i,k))
+
+# l1 = list(hs.values())
+
+# l1 = list(map(lambda l:
+#     build(l,
+#     lambda a:a[1],
+#     lambda a,b: (a[0]+b[0],a[1]+b[1]),
+#     lambda a:(a[1],1))
+# ,l1))
+
+# r1 = build(l1,lambda a: a(
+#         lambda p1,p2,a,b,pref:p1[0],
+#         lambda a:a[0]
+# ),lambda a,b: a+b,lambda a:[a])
+
+# l1 = build(l1,lambda a: a(
+#         lambda p1,p2,a,b,pref:N-p1[0],
+#         lambda a:N-a[0]
+# ),lambda a,b: a+b,lambda a:[a])
+
+
+# for J in range(N):
+#     MIP = (J,50345)
+#     LP = getMoreThan(l1,Leaf(MIP),
+#         lambda a: a(
+#             lambda p1,p2,a,b,pref:N-p1[0],
+#             lambda a:N-a[0]
+#         ),lambda a,b: a+b,lambda a:[a],[]
+#     )
+#     if J%10000==0:
+#         print(J)
+    # for i in LP:
+    #     # print(
+    #     getMoreThan(
+    #         i,
+    #         MIP,
+    #         lambda a: a[1],
+    #         lambda a,b: (a[0]+b[0],a[1]+b[1]),
+    #         lambda a:(a[1],1),
+    #         (0,0)
+    #     )
+    # )
+
+# print(printTree(l1,lambda a:printTree(a,str)))
+l = list(enumerate(l,start=0))
+Tt = build(l,lambda a: a[1],lambda a,b: a+b,lambda a:[a])
+for i in range(100000):
+    getMoreThan(Tt,(0,i),lambda a: a[1],lambda a,b: a+b,lambda a:[a],[])
+    if i %1000==0:
+        print(i)
+# print(getMoreThan(Tt,(0,200),lambda a: a[1],lambda a,b: a+b,lambda a:a[1],0))

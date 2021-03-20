@@ -1,0 +1,7 @@
+add = lambda a: lambda b: a + b
+add1 = lambda a,n:n(add(a))
+
+print(add1(1,lambda f:f(2)))
+
+a = add(add(1)(2))(3)
+print(a)

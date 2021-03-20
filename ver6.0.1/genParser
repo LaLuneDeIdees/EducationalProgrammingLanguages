@@ -1,0 +1,232 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jul  4 00:17:41 2020
+
+@author: lune
+"""
+
+parser = '''
+P_START = N_nln lines N_NONE
+lines = line N_nln lines | empty
+line = P_Declare | P_TypeDeclare | P_sugar
+
+_wordList = T_word _wordList | T_word
+P_sugar = N_sugar _wordList NN_nln
+
+P_TypeNotAdtDec = N_type T_word N_is N_nln P_TNAD_decT_lines
+P_TNAD_decT_lines = _TNAD_decT_lines
+_TNAD_decT_lines = _TNAD_decT NN_nln _TNAD_decT_lines | empty
+_TNAD_decT = P_typeSig
+
+P_TypeDeclare = N_type T_word P_TD_arg N_is N_nln _TD_decTline
+_TD_decTline = P_decT_lines
+
+P_TD_arg = N_with _TD_arg_list | empty
+_TD_arg_list = T_word _TD_arg_list | empty
+
+P_decT_lines = _decT_lines
+_decT_lines = _decT NN_nln _decT_lines | empty
+_decT = P_DecType | P_tipSig
+P_DecType = P_decOptions T_word N_AR P_tipSig | T_word
+P_decOptions = _decOptions
+_decOptions = T_evalT _decOptions | T_binary _decOptions | empty
+
+P_Declare = _decName N_is N_nln P_DEC_options _decExprList
+_decName = T_word
+
+_decExprList = P_Expr NN_nln _decExprList | empty
+
+
+dec_oneOption = T_binary | T_evalT | T_inline | P_tip
+replace = P_tip to P_type
+_DEC_options = dec_oneOption NN_nln _DEC_options | empty
+P_DEC_options = _DEC_options
+
+P_tip = _ser N_AR P_tip | _ser
+_ser = P_ser | N_os _ser N_cs | N_os P_tip N_cs | T_word
+P_ser = T_word _ser
+
+P_tipSig = _varSig _tailSig | _varSig
+_tailSig = P_tailSig | _varSig
+P_tailSig = _varSig _tailSig
+_varSig = T_word | N_os P_tipSig N_cs
+
+_P_tipSig = _serSig
+_serSig = P_serSig | N_os _serSig N_cs | T_word
+P_serSig = T_word _serSig
+
+P_type = P_typeSig N_AR _type_serialize | P__type_serialize1 N_AR _type_serialize
+_type_serialize = P_typeSig N_AR _type_serialize | P_typeSig | P__type_serialize1 N_AR _type_serialize                 #
+P__type_serialize1 = N_os _type_serialize N_cs
+
+P_wordWithPtr = T_word
+_typeSig = T_word _typeSig | P__typeSig _typeSig | empty
+P__typeSig = N_os _typeSig N_cs
+P_typeSig = T_word _typeSig | P__typeSig _typeSig | P_DO
+
+
+
+
+P_Expr = _Expr_list _typeCast
+
+_typeCast = N_as P_tipSig | empty
+
+_Expr_list = _Expr _Expr_list | empty
+
+_Expr = P_constant | P_Lambda | P_word | P_IDX | P_newScope
+
+P_newScope = N_os N_nln P_Expr N_nln _nSS N_nln N_cs
+_nSS = lines | empty
+
+
+
+P_Lambda = N_Lambda P_Lam_typeSig N_AR P_Expr
+
+_lwordWithPtr = P_wordWithPtr | P_constant
+_LtypeSig = _lwordWithPtr _LtypeSig | P__LtypeSig _LtypeSig | empty
+P__LtypeSig = N_os _LtypeSig N_cs
+P_Lam_typeSig = _lwordWithPtr _LtypeSig | P__LtypeSig _LtypeSig
+
+P_word = _getAddr T_word
+_getAddr = T_GET_ADDR | empty
+
+
+P_IDX = N_oi P_Expr N_ci
+
+P_DO = T_DO
+
+
+P_constant = T_number | T_BOOL | T_literal | N_oc _arraList N_cc
+_arraList =  _arraList1 | empty
+_arraList1 = P_Expr N_sem _arraList1 | P_Expr
+
+N_Lambda = T_LAMBDA
+N_nln = T_nln N_nln | empty
+NN_nln = T_nln N_nln
+N_is = T_is
+N_type = T_type
+N_AR = T_RIGHT_ARROW
+N_os = T_OPEN_S
+N_cs = T_CLOSE_S
+N_oc = T_OPEN_C
+N_cc = T_CLOSE_C
+N_oi = T_OPEN_I
+N_ci = T_CLOSE_I
+N_sem = T_SEM
+N_NONE = T_NONE
+N_with = T_with
+N_sugar = T_sugar
+N_adt = T_adt
+P_empty = empty
+N_as = T_as
+'''
+#_opers = T_MINUS | T_PLUS | T_MULT | T_DIVS | T_SHIFT | T_ORD | T_EQ | T_AND | T_XOR | T_OR | T_NOT
+
+fout = open('myFP.py','w');
+
+fout.write('''
+
+import sys
+import myFL as lexer
+
+def empty(d,p):
+    return (d,p)
+
+def term(t):
+    def parser(d,p):
+        if p[0][0] == t:
+            return (d+[p[0]],p[1:])
+        return (None,[(t,'',0)]+p[1:])
+    return parser
+
+
+def notTerm(c,pp):
+	def parser(d,p):
+		d1,p1 = pp([],p)
+		if d1 == None:
+			return (None,p1)
+		return (d+[[c,d1]],p1)
+	return parser
+
+def notSaveTerm(c,pp):
+    def parser(d,p):
+        d1,p1 = pp([],p)
+        if d1 == None:
+            return (None,p1)
+        return (d,p1)
+    return parser
+
+def app(a,b):
+    def parser(d,p):
+        d1,p1 = a([],p)
+        if d1 == None:
+            return (None,p1)
+        d2,p2 = b(d1,p1)
+        if d2 == None:
+            return (None,p2)
+        return (d+d2,p2)
+    return parser
+
+def par(a,b):
+    def parser(d,p):
+        d1,p1 = a([],p)
+        if d1 != None:
+            return (d+d1,p1)
+        d2,p2 = b([],p)
+        if d2 != None:
+            return (d+d2,p2)
+        return (None,p1)
+    return parser
+
+def mor(l):
+    if l == []:
+        return empty
+    elif len(l) == 1:
+        return l[0]
+    return par(l[0],mor(l[1:]))
+
+def serial(l):
+    if l == []:
+        return empty
+    elif len(l) == 1:
+        return l[0]
+    return app(l[0],serial(l[1:]))
+
+''')
+
+idx = 1
+listOfParserTokens = []
+def genParser(s):
+    if s == '':
+        return
+    global idx
+    ss = s.split('=')
+    s1 = ss[0].split()[0]
+    fout.write('def '+s1+'(d,p):\n')
+    fout.write('\td1,p1 = mor([\n')
+    for k in ss[1].split('|'):
+        fout.write('\t\tserial([\n')
+        for l in k.split():
+            if l[0] == 'T':
+                fout.write('\t\t\tterm(lexer.t' + l + '),\n')
+            else:
+                fout.write('\t\t\t'+l+',\n')
+        fout.write('\t\t]),\n')
+    fout.write('\t])(d,p)\n')
+    fout.write('\treturn (d1,p1)\n')
+    if s1[0] == 'P':
+        listOfParserTokens.append(s1)
+        fout.write(s1 + ' = notTerm('+str(idx)+','+s1+')\n')
+        idx+=1
+    if s1[0] == 'N':
+        fout.write(s1 + ' = notSaveTerm('+str(idx)+','+s1+')\n')
+list(map(genParser,parser[1:-1].split('\n')))
+
+fout.write('sys.setrecursionlimit(2**10*2**16)\n')
+
+fout.write('\n')
+for k in range(len(listOfParserTokens)):
+    fout.write('p'+listOfParserTokens[k] + ' = '+str(k+1)+'\n')
+
+fout.close()

@@ -1,0 +1,9 @@
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/main.py
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/myFL.py
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/myFP.py
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/const.py
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/genLexer
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/genParser
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/hash.py
+/home/lune/Документы/code/c++/MyProgramLang/ver6/ver6.0.1/typeTool.py
+

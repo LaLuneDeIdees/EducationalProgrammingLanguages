@@ -1,0 +1,64 @@
+
+-- import Data.List.Split
+
+import Control.Monad(guard)
+-- import Prelude hiding ((>>=), return)
+
+filterPrime (x:xs) = x : filterPrime [a | a <- xs, a `mod` x /= 0]
+filterPrime [] = []
+
+primes = filterPrime [2..]
+
+
+minWithDForN x d n = let x' = x*10+d in
+    if x' > n then x else minWithDForN x' d n
+
+calcPlusFor n d = let n' = minWithDForN d d n in
+    if n == n' then 0 else 1 + calcPlusFor (n - n') d
+
+miDiv::Int -> Int -> Maybe Int 
+miDiv a 0 = Nothing
+miDiv a b = Just (a `div` b)
+
+data Write a = Write a [String]
+
+instance Monad Write where
+    m1 >>= m2 = Write a2 (s1++s2)
+        where
+            Write a1 s1 = m1
+            Write a2 s2 = m2 a1
+
+    return x = Write x []
+-- (>>>)::Write a -> (a -> Write b) -> Write b
+-- (>>>) = (>>=)
+
+-- printer e x = Write x [e]
+
+
+-- getMsg (Write _ a) = a
+
+test = do 
+    a <- [1..6]
+    b <- a^2 : a^3  :[]
+    -- guard$b `mod` 6 == 0
+    e <- 3 - b           :[]
+    guard$e `mod` 2 == 1
+    guard$e `mod` 6 /= 0
+    return e
+
+-- test = getMsg$
+--     return 123 >>=
+--     printer "Hello" >>=
+--     printer (show 123)
+
+main = do
+    -- d1:n1:[] <- sequence$take 2$repeat getLine
+    -- exmp <- getLine >>= \a->return$(map read (words a)::[Int])
+    -- print exmp
+    print test
+    -- let exmp1 = words exmp
+    -- print exmp
+    -- n1 <- getLine
+    -- let d = read d1::Integer
+    -- let n = read n1::Integer
+    -- print$calcPlusFor n d
